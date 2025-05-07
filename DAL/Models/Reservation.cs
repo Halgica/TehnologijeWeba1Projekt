@@ -10,9 +10,11 @@ namespace DAL.Models
     {
         public int Id { get; set; }
         public int UserId { get; set; }
+        public int ResourceId { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
 
         public virtual User? Rezervator { get; set; }
+        public virtual Resource? Resource { get; set; }
     }
 }
