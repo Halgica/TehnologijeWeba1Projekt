@@ -17,6 +17,7 @@ namespace DAL.DB
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Promotion> Promotions { get; set; }
+        public DbSet<TimeSlot> TimeSlots { get; set; }
         //public DbSet<AuthUser> AuthUsers { get; set; }
         //public DbSet<AuthRole> AuthRoles { get; set; }
 

@@ -44,9 +44,9 @@ namespace DAL.Repos
             return dbContext.Roles.FirstOrDefault(r => r.Id == id);
         }
 
-        public Role? GetByName(string name)
+        public IEnumerable<Role> GetByName(RoleName name)
         {
-            return dbContext.Roles.FirstOrDefault(r =>r.Name == name);
+            return dbContext.Roles.Where(r => r.Name == name);
         }
 
         public void SaveChanges()
