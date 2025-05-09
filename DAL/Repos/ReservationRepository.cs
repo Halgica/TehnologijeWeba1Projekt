@@ -65,5 +65,10 @@ namespace DAL.Repos
         {
             return dbContext.Reservations.Where(r => r.ResourceId == resourceId);
         }
+
+        public IEnumerable<Reservation> GetBySlotId(int slotId)
+        {
+            return dbContext.Reservations.Where(r =>r.SlotId == slotId);
+        }
     }
 }

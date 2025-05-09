@@ -13,6 +13,10 @@ namespace DAL.DB
         public DbSet<User> Users { get; set; }
         public DbSet<Resource> Resources { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<Promotion> Promotions { get; set; }
         //public DbSet<AuthUser> AuthUsers { get; set; }
         //public DbSet<AuthRole> AuthRoles { get; set; }
 

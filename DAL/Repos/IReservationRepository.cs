@@ -8,5 +8,6 @@ namespace DAL.Repos
     {
         IEnumerable<Reservation> GetByUserId(int userId);
         IEnumerable<Reservation> GetByResourceId(int resourceId);
+        IEnumerable<Reservation> GetBySlotId(int slotId);
     }
 }
