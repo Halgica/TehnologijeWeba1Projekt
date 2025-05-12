@@ -5,6 +5,6 @@
         public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
-        public IList<Reservation>? Reservations { get; set; }
+        public virtual IList<Reservation>? Reservations { get; set; }
     }
 }

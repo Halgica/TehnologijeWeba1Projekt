@@ -49,7 +49,8 @@ namespace DAL.DB
                 .WithMany();
             modelBuilder.Entity<Review>()
                 .HasOne(r => r.EscapeRoom)
-                .WithOne();
+                .WithOne()
+                .HasForeignKey<Review>(r => r.EscapeRoomId);
             modelBuilder.Entity<Promotion>().HasIndex(p => p.Code).IsUnique();
             modelBuilder.Entity<TimeSlot>(); // Sus
 

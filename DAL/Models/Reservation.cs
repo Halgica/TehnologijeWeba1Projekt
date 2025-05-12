@@ -13,9 +13,9 @@ namespace DAL.Models
         public int ResourceId { get; set; }
         public int SlotId { get; set; }
 
-        public required TimeSlot Slot { get; set; }
-        public User? User { get; set; }
-        public Resource? Resource { get; set; }
+        public required virtual TimeSlot Slot { get; set; }
+        public virtual User? User { get; set; }
+        public virtual Resource? Resource { get; set; }
        
     }
 }

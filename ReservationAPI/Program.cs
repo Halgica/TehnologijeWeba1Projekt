@@ -1,12 +1,16 @@
 using DAL.DB;
 using DAL.Repos;
+using ReservationAPI.DTOs;
+using DAL.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddAutoMapper(typeof(Program));
 
+// Add services to the container.
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -20,9 +24,13 @@ builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<ITimeSlotRepository, TimeSlotRepository>();
 
+
 builder.Services.AddDbContext<TW1DbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        x => x.MigrationsAssembly("DAL")
+    )
     .UseLazyLoadingProxies();
     //.LogTo(Console.WriteLine, LogLevel.Information);
 });
