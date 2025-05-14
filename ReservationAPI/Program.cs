@@ -2,9 +2,13 @@ using DAL.DB;
 using DAL.Repos;
 using ReservationAPI.DTOs;
 using DAL.Models;
+using Serilog;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseSerilog((context, services, configuration) =>
+    configuration.ReadFrom.Configuration(context.Configuration));
 
 builder.Services.AddAutoMapper(typeof(Program));
 
