@@ -19,11 +19,13 @@ namespace DAL.Repos
         public void Add(Review entity)
         {
             dbContext.Add(entity);
+            SaveChanges();
         }
 
         public void Delete(Review entity)
         {
             dbContext.Remove(entity);
+            SaveChanges();
         }
 
         public IEnumerable<Review> Find(Expression<Func<Review, bool>> predicate)
@@ -59,6 +61,7 @@ namespace DAL.Repos
         public void Update(Review entity)
         {
             dbContext.Update(entity);
+            SaveChanges();
         }
     }
 }

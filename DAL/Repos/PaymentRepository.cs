@@ -19,11 +19,13 @@ namespace DAL.Repos
         public void Add(Payment entity)
         {
             dbContext.Add(entity);
+            SaveChanges();
         }
 
         public void Delete(Payment entity)
         {
             dbContext.Remove(entity);
+            SaveChanges();
         }
 
         public IEnumerable<Payment> Find(Expression<Func<Payment, bool>> predicate)
@@ -59,6 +61,7 @@ namespace DAL.Repos
         public void Update(Payment entity)
         {
             dbContext.Update(entity);
+            SaveChanges();
         }
     }
 }

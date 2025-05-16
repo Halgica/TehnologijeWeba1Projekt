@@ -20,11 +20,13 @@ namespace DAL.Repos
         public void Add(Promotion entity)
         {
             dbContext.Add(entity);
+            SaveChanges();
         }
 
         public void Delete(Promotion entity)
         {
             dbContext.Remove(entity);
+            SaveChanges();
         }
 
         public IEnumerable<Promotion> Find(Expression<Func<Promotion, bool>> predicate)
@@ -60,6 +62,7 @@ namespace DAL.Repos
         public void Update(Promotion entity)
         {
             dbContext.Update(entity);
+            SaveChanges();
         }
     }
 }

@@ -19,11 +19,13 @@ namespace DAL.Repos
         public void Add(TimeSlot entity)
         {
             dbContext.Add(entity);
+            SaveChanges();
         }
 
         public void Delete(TimeSlot entity)
         {
             dbContext.Remove(entity);
+            SaveChanges();
         }
 
         public IEnumerable<TimeSlot> Find(Expression<Func<TimeSlot, bool>> predicate)
@@ -49,6 +51,7 @@ namespace DAL.Repos
         public void Update(TimeSlot entity)
         {
             dbContext.Update(entity);
+            SaveChanges();
         }
     }
 }
