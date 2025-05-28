@@ -3,7 +3,8 @@ using DAL.Models;
 using DAL.Repos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ReservationAPI.DTOs;
+using ReservationAPI.DTOs.Read;
+using ReservationAPI.DTOs.Write;
 
 namespace ReservationAPI.Controllers
 {
@@ -23,26 +24,26 @@ namespace ReservationAPI.Controllers
         #region Web methods
 
         [HttpGet]
-        public IActionResult GetAllResources()
+        public async Task<IActionResult> GetAllResourcesAsync()
         {
-            var resources = resourceRepository.GetAllAsync();
+            var resources = await resourceRepository.GetAllAsync();
             var resourcesDtos = _mapper.Map<IEnumerable<ResourceDto>>(resources);
             return Ok(resourcesDtos);
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetResourceById(int id)
+        public async Task<IActionResult> GetResourceByIdAsync(int id)
         {
-            var resource = resourceRepository.GetByIdAsync(id);
+            var resource = await resourceRepository.GetByIdAsync(id);
             if (resource == null)
                 return NotFound();
             return Ok(resource);
         }
 
         [HttpGet("search")]
-        public IActionResult SearchResources([FromQuery] string? name)
+        public async Task<IActionResult> SearchResourcesAsync([FromQuery] string? name)
         {
-            var resources = resourceRepository.FindAsync(r => string.IsNullOrEmpty(name) || r.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
+            var resources = await resourceRepository.FindAsync(r => string.IsNullOrEmpty(name) || r.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
 
             if (!resources.Any())
                 return NotFound("No resources found matching the criteria.");
@@ -51,42 +52,42 @@ namespace ReservationAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddResource([FromBody] Resource resource)
+        public async Task<IActionResult> AddResourceAsync([FromBody] ResourceCreateUpdateDto resourceDto)
         {
-            resourceRepository.AddAsync(resource);
-            return Ok();
+            var resource = _mapper.Map<Resource>(resourceDto);
+            await resourceRepository.AddAsync(resource);
+            return CreatedAtAction(nameof(GetResourceByIdAsync).Replace("Async",""), new { id = resource.Id }, resourceDto);
         }
 
         [HttpDelete]
-        public IActionResult DeleteResource([FromBody] Resource resource)
+        public async Task<IActionResult> DeleteResourceAsync([FromBody] ResourceDto resource)
         {
-            var entity = resourceRepository.GetByIdAsync(resource.Id);
+            var entity = await resourceRepository.GetByIdAsync(resource.Id);
             if (entity == null)
             {
                 return NotFound();
             }
             else
             {
-                resourceRepository.DeleteAsync(entity);
+                await resourceRepository.DeleteAsync(entity);
                 return NoContent();
             }
 
         }
 
         [HttpPut]
-        public IActionResult UpdateResource([FromBody] Resource resource)
+        public async Task<IActionResult> UpdateResourceAsync([FromBody] ResourceCreateUpdateDto resourceDto)
         {
-            var entity = resourceRepository.GetByIdAsync(resource.Id);
+            var entity = await resourceRepository.GetByIdAsync(resourceDto.Id);
             if (entity == null)
             {
                 return NotFound();
             }
             else
             {
-                entity.Name = resource.Name;
-                entity.Description = resource.Description;
+                _mapper.Map(resourceDto, entity);
 
-                resourceRepository.UpdateAsync(entity);
+                await resourceRepository.UpdateAsync(entity);
                 return Ok();
             }
         }

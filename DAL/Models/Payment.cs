@@ -9,9 +9,9 @@ namespace DAL.Models
     public class Payment
     {
         public int Id { get; set; }
-        public required int UserId { get; set; }
+        public int UserId { get; set; }
         public PaymentType Type { get; set; }
-        public required virtual User User { get; set; }
+        public virtual User? User { get; set; }
     }
     public enum PaymentType
     {

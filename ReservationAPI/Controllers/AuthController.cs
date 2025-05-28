@@ -1,10 +1,10 @@
 ﻿using DAL.DB;
-using ReservationAPI.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ReservationAPI.Services;
 using Microsoft.EntityFrameworkCore;
 using BCrypt.Net;
+using ReservationAPI.DTOs.Auth;
 
 namespace ReservationAPI.Controllers
 {

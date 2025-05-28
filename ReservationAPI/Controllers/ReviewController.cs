@@ -1,9 +1,12 @@
 ﻿using AutoMapper;
+using DAL.DB;
 using DAL.Models;
 using DAL.Repos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ReservationAPI.DTOs;
+using Microsoft.EntityFrameworkCore;
+using ReservationAPI.DTOs.Read;
+using ReservationAPI.DTOs.Write;
 
 namespace ReservationAPI.Controllers
 {
@@ -14,70 +17,93 @@ namespace ReservationAPI.Controllers
 
         private readonly IReviewRepository reviewRepository;
         private readonly IMapper _mapper;
+        private readonly TW1DbContext _context;
 
-        public ReviewController(IReviewRepository reviewRepository, IMapper mapper)
+        public ReviewController(IReviewRepository reviewRepository, IMapper mapper, TW1DbContext context)
         {
             this.reviewRepository = reviewRepository;
             _mapper = mapper;
+            _context = context;
         }
 
         #region Web methods
 
         [HttpGet]
-        public IActionResult GetAllReviews()
+        public async Task<IActionResult> GetAllReviewsAsync()
         {
-            var reviews = reviewRepository.GetAllAsync();
+            var reviews = await reviewRepository.GetAllAsync();
             var reviewDtos = _mapper.Map<IEnumerable<ReviewDto>>(reviews);
             return Ok(reviewDtos);
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetReviewById(int id)
+        public async Task<IActionResult> GetReviewByIdAsync(int id)
         {
-            var review = reviewRepository.GetByIdAsync(id);
+            var review = await reviewRepository.GetByIdAsync(id);
             if (review == null)
                 return NotFound();
             return Ok(review);
         }
 
+        //[HttpPost]
+        //public async Task<IActionResult> AddReviewAsync([FromBody] ReviewCreateUpdateDto reviewDto)
+        //{
+        //    var review = _mapper.Map<Review>(reviewDto);
+        //    review.User = await reviewRepository.Users.FindAsync(reviewDto.UserId);
+        //    review.EscapeRoom = await reviewRepository.Resources.FindAsync(reviewDto.EscapeRoomId);
+        //    await reviewRepository.AddAsync(review);
+        //    return CreatedAtAction(nameof(GetReviewByIdAsync).Replace("Async", ""), new { id = review.Id }, reviewDto);
+        //}
         [HttpPost]
-        public IActionResult AddReview([FromBody] Review review)
+        public async Task<IActionResult> AddReviewAsync([FromBody] ReviewCreateUpdateDto dto)
         {
-            reviewRepository.AddAsync(review);
-            return Ok();
+            var review = _mapper.Map<Review>(dto);
+
+            review.User = await _context.Users.FindAsync(dto.UserId);
+            review.EscapeRoom = await _context.Resources.FindAsync(dto.EscapeRoomId);
+
+            if (review.User == null || review.EscapeRoom == null)
+            {
+                return BadRequest("Invalid UserId or EscapeRoomId.");
+            }
+
+            _context.Reviews.Add(review);
+            await _context.SaveChangesAsync();
+
+            var reviewDto = _mapper.Map<ReviewDto>(review);
+            return CreatedAtAction(nameof(GetReviewByIdAsync).Replace("Async", ""), new { id = review.Id }, reviewDto);
         }
 
+
         [HttpDelete]
-        public IActionResult DeleteReview([FromBody] Review review)
+        public async Task<IActionResult> DeleteReviewAsync([FromBody] ReviewDto review)
         {
-            var entity = reviewRepository.GetByIdAsync(review.Id);
+            var entity = await reviewRepository.GetByIdAsync(review.Id);
             if (entity == null)
             {
                 return NotFound();
             }
             else
             {
-                reviewRepository.DeleteAsync(entity);
+                await reviewRepository.DeleteAsync(entity);
                 return NoContent();
             }
 
         }
 
         [HttpPut]
-        public IActionResult UpdateReview([FromBody] Review review)
+        public async Task<IActionResult> UpdateReviewAsync([FromBody] ReviewCreateUpdateDto reviewDto)
         {
-            var entity = reviewRepository.GetByIdAsync(review.Id);
+            var entity = await reviewRepository.GetByIdAsync(reviewDto.Id);
             if (entity == null)
             {
                 return NotFound();
             }
             else
             {
-                entity.Rating = review.Rating;
-                entity.Content = review.Content;
-                entity.ReviewTime = review.ReviewTime;
+                _mapper.Map(reviewDto, entity);
 
-                reviewRepository.UpdateAsync(entity);
+                await reviewRepository.UpdateAsync(entity);
                 return Ok();
             }
         }

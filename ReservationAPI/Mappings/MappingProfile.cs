@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
-using ReservationAPI.DTOs;
 using DAL.Models;
+using ReservationAPI.DTOs.Read;
+using ReservationAPI.DTOs.Write;
 
 namespace ReservationAPI.Mappings
 {
@@ -10,18 +11,37 @@ namespace ReservationAPI.Mappings
         {
             CreateMap<User,UserDto>().ReverseMap(); ;
             CreateMap<User, UserCreateUpdateDto>().ReverseMap();
+
             CreateMap<Payment, PaymentDto>()
                 .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User.Name));
+            CreateMap<PaymentCreateUpdateDto, Payment>();
+
             CreateMap<Promotion,PromotionDto>().ReverseMap();
-            CreateMap<Reservation,ReservationDto>()
+            CreateMap<PromotionCreateUpdateDto, Promotion>();
+
+            CreateMap<Reservation, ReservationDto>()
                 .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User.Name))
                 .ForMember(dest => dest.ResourceName, opt => opt.MapFrom(src => src.Resource.Name));
+            CreateMap<ReservationCreateUpdateDto, Reservation>()
+                .ForMember(dest => dest.User, opt => opt.Ignore())
+                .ForMember(dest => dest.Resource, opt => opt.Ignore());
+
+
+
             CreateMap<Resource,ResourceDto>().ReverseMap();
+            CreateMap<ResourceCreateUpdateDto, Resource>();
+
             CreateMap<Review, ReviewDto>()
                 .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User.Name))
                 .ForMember(dest => dest.EscapeRoomName, opt => opt.MapFrom(src => src.EscapeRoom.Name));
+            CreateMap<ReviewCreateUpdateDto, Review>();
+
+
             CreateMap<Role,RoleDto>().ReverseMap();
+            CreateMap<RoleCreateUpdateDto, Role>();
+
             CreateMap<TimeSlot,TimeSlotDto>().ReverseMap();
+            CreateMap<TimeSlotCreateUpdateDto, TimeSlot>();
         }
     }
 }

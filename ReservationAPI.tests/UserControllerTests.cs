@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
-using ReservationAPI.DTOs;
+using ReservationAPI.DTOs.Read;
 using System.Net;
 using System.Net.Http.Json;
 using Xunit;

@@ -4,7 +4,8 @@ using DAL.Repos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ReservationAPI.DTOs;
+using ReservationAPI.DTOs.Read;
+using ReservationAPI.DTOs.Write;
 
 namespace ReservationAPI.Controllers
 {
@@ -23,9 +24,9 @@ namespace ReservationAPI.Controllers
 
         #region Web methods
 
-        [HttpGet]
+        [HttpGet (Name = "GetUsers")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> GetAllUsers()
+        public async Task<IActionResult> GetAllUsersAsync()
         {
             var users = await _userRepository.GetAllAsync();
             var userDtos = _mapper.Map<IEnumerable<UserDto>>(users);
@@ -62,7 +63,7 @@ namespace ReservationAPI.Controllers
         {
             var user = _mapper.Map<User>(userDto);
             await _userRepository.AddAsync(user);
-            return CreatedAtAction(nameof(GetUserByIdAsync), new { id = user.Id }, userDto);
+            return CreatedAtAction(nameof(GetUserByIdAsync).Replace("Async", ""), new { id = user.Id }, userDto);
         }
 
         [HttpDelete]

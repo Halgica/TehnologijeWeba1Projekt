@@ -3,7 +3,8 @@ using DAL.Models;
 using DAL.Repos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ReservationAPI.DTOs;
+using ReservationAPI.DTOs.Read;
+using ReservationAPI.DTOs.Write;
 
 namespace ReservationAPI.Controllers
 {
@@ -23,59 +24,58 @@ namespace ReservationAPI.Controllers
         #region Web methods
 
         [HttpGet]
-        public IActionResult GetAllPayments()
+        public async Task<IActionResult> GetAllPaymentsAsync()
         {
-            var payments = paymentRepository.GetAllAsync();
+            var payments = await paymentRepository.GetAllAsync();
             var paymentDtos = _mapper.Map<IEnumerable<PaymentDto>>(payments);
             return Ok(paymentDtos);
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetPaymentById(int id)
+        public async Task<IActionResult> GetPaymentByIdAsync(int id)
         {
-            var payment = paymentRepository.GetByIdAsync(id);
+            var payment = await paymentRepository.GetByIdAsync(id);
             if (payment == null)
                 return NotFound();
             return Ok(payment);
         }
 
         [HttpPost]
-        public IActionResult AddPayment([FromBody] Payment payment)
+        public async Task<IActionResult> AddPaymentAsync([FromBody] PaymentCreateUpdateDto paymentDto)
         {
-            paymentRepository.AddAsync(payment);
-            return Ok();
+            var payment = _mapper.Map<Payment>(paymentDto);
+            await paymentRepository.AddAsync(payment);
+            return CreatedAtAction(nameof(GetPaymentByIdAsync).Replace("Async",""), new { id = payment.Id }, paymentDto);
         }
 
         [HttpDelete]
-        public IActionResult DeletePayment([FromBody] Payment payment)
+        public async Task<IActionResult> DeletePaymentAsync([FromBody] PaymentDto payment)
         {
-            var entity = paymentRepository.GetByIdAsync(payment.Id);
+            var entity = await paymentRepository.GetByIdAsync(payment.Id);
             if (entity == null)
             {
                 return NotFound();
             }
             else
             {
-                paymentRepository.DeleteAsync(entity);
+                await paymentRepository.DeleteAsync(entity);
                 return NoContent();
             }
         }
 
         [HttpPut]
-        public IActionResult UpdatePayment([FromBody] Payment payment)
+        public async Task<IActionResult> UpdatePaymentAsync([FromBody] PaymentCreateUpdateDto paymentDto)
         {
-            var entity = paymentRepository.GetByIdAsync(payment.Id);
+            var entity = await paymentRepository.GetByIdAsync(paymentDto.Id);
             if (entity == null)
             {
                 return NotFound();
             }
             else
             {
-                entity.UserId = payment.UserId;
-                entity.Type = payment.Type;
-                entity.User = payment.User;
+                _mapper.Map(paymentDto,entity);
 
-                paymentRepository.UpdateAsync(entity);
+                await paymentRepository.UpdateAsync(entity);
                 return Ok();
             }
         }

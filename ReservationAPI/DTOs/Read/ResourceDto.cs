@@ -1,4 +1,4 @@
-﻿namespace ReservationAPI.DTOs
+﻿namespace ReservationAPI.DTOs.Read
 {
     public class ResourceDto
     {

@@ -3,7 +3,8 @@ using DAL.Models;
 using DAL.Repos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ReservationAPI.DTOs;
+using ReservationAPI.DTOs.Read;
+using ReservationAPI.DTOs.Write;
 
 namespace ReservationAPI.Controllers
 {
@@ -23,17 +24,17 @@ namespace ReservationAPI.Controllers
         #region Web methods
 
         [HttpGet]
-        public IActionResult GetAllTimeSlots()
+        public async Task<IActionResult> GetAllTimeSlotsAsync()
         {
-            var timeSlotDto = timeSlotRepository.GetAllAsync();
+            var timeSlotDto = await timeSlotRepository.GetAllAsync();
             var TimeSlotsDtos = mapper.Map<IEnumerable<TimeSlotDto>>(timeSlotDto);
             return Ok(TimeSlotsDtos);
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetTimeSlotById(int id)
+        public async Task<IActionResult> GetTimeSlotByIdAsync(int id)
         {
-            var timeSlot = timeSlotRepository.GetByIdAsync(id);
+            var timeSlot = await timeSlotRepository.GetByIdAsync(id);
             var timeSlotDto = mapper.Map<TimeSlotDto>(timeSlot);
             if (timeSlot == null)
                 return NotFound();
@@ -41,37 +42,37 @@ namespace ReservationAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddTimeSlot([FromBody] TimeSlotDto timeSlotDto)
+        public async Task<IActionResult> AddTimeSlotAsync([FromBody] TimeSlotCreateUpdateDto timeSlotDto)
         {
             var timeSlot = mapper.Map<TimeSlot>(timeSlotDto);
-            timeSlotRepository.AddAsync(timeSlot);
-            return Ok(timeSlot);
+            await timeSlotRepository.AddAsync(timeSlot);
+            return CreatedAtAction(nameof(GetTimeSlotByIdAsync).Replace("Async", ""), new { id = timeSlot.Id }, timeSlotDto);
         }
 
         [HttpDelete]
-        public IActionResult DeleteReservation([FromBody] TimeSlot timeSlot)
+        public async Task<IActionResult> DeleteReservationAsync([FromBody] TimeSlotDto timeSlotDto)
         {
-            var entity = timeSlotRepository.GetByIdAsync(timeSlot.Id);
+            var entity = await timeSlotRepository.GetByIdAsync(timeSlotDto.Id);
             if (entity == null)
                 return NotFound();
             else
             {
-                timeSlotRepository.DeleteAsync(entity);
+                await timeSlotRepository.DeleteAsync(entity);
                 return NoContent();
             }
         }
 
         [HttpPut]
-        public IActionResult UpdateReservation([FromBody] TimeSlotDto timeSlotDto)
+        public async Task<IActionResult> UpdateReservationAsync([FromBody] TimeSlotCreateUpdateDto timeSlotDto)
         {
-            var entity = timeSlotRepository.GetByIdAsync(timeSlotDto.Id);
+            var entity = await timeSlotRepository.GetByIdAsync(timeSlotDto.Id);
             if (entity == null)
                 return NotFound();
             else
             {
                 mapper.Map(timeSlotDto, entity);
 
-                timeSlotRepository.UpdateAsync(entity);
+                await timeSlotRepository.UpdateAsync(entity);
                 return Ok();
             }
         }
