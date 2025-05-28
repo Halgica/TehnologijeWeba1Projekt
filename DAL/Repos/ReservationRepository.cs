@@ -1,10 +1,10 @@
 ﻿using DAL.DB;
 using DAL.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL.Repos
@@ -18,57 +18,57 @@ namespace DAL.Repos
             this.dbContext = dbContext;
         }
 
-        public void Add(Reservation reservation)
+        public async Task AddAsync(Reservation reservation)
         {
-            dbContext.Reservations.Add(reservation);
-            SaveChanges();
+            await dbContext.Reservations.AddAsync(reservation);
+            await SaveChangesAsync();
         }
 
-        public void Update(Reservation reservation)
+        public async Task UpdateAsync(Reservation reservation)
         {
             dbContext.Reservations.Update(reservation);
-            SaveChanges();
+            await SaveChangesAsync();
         }
 
-        public void Delete(Reservation reservation)
+        public async Task DeleteAsync(Reservation reservation)
         {
             dbContext.Reservations.Remove(reservation);
-            SaveChanges();
+            await SaveChangesAsync();
         }
 
-        public Reservation? GetById(int id)
+        public async Task<Reservation?> GetByIdAsync(int id)
         {
-            return dbContext.Reservations.FirstOrDefault(r => r.Id == id);
+            return await dbContext.Reservations.FirstOrDefaultAsync(r => r.Id == id);
         }
 
-        public IEnumerable<Reservation> GetAll()
+        public async Task<IEnumerable<Reservation>> GetAllAsync()
         {
-            return dbContext.Reservations.ToList();
+            return await dbContext.Reservations.ToListAsync();
         }
 
-        public IEnumerable<Reservation> Find(Expression<Func<Reservation, bool>> predicate)
+        public async Task<IEnumerable<Reservation>> FindAsync(Expression<Func<Reservation, bool>> predicate)
         {
-            return dbContext.Reservations.Where(predicate);
+            return await dbContext.Reservations.Where(predicate).ToListAsync();
         }
 
-        public void SaveChanges()
+        public async Task SaveChangesAsync()
         {
-            dbContext.SaveChanges();
+            await dbContext.SaveChangesAsync();
         }
 
-        public IEnumerable<Reservation> GetByUserId(int userId)
+        public async Task<IEnumerable<Reservation>> GetByUserIdAsync(int userId)
         {
-            return dbContext.Reservations.Where(r => r.UserId == userId);
+            return await dbContext.Reservations.Where(r => r.UserId == userId).ToListAsync();
         }
 
-        public IEnumerable<Reservation> GetByResourceId(int resourceId)
+        public async Task<IEnumerable<Reservation>> GetByResourceIdAsync(int resourceId)
         {
-            return dbContext.Reservations.Where(r => r.ResourceId == resourceId);
+            return await dbContext.Reservations.Where(r => r.ResourceId == resourceId).ToListAsync();
         }
 
-        public IEnumerable<Reservation> GetBySlotId(int slotId)
+        public async Task<IEnumerable<Reservation>> GetBySlotIdAsync(int slotId)
         {
-            return dbContext.Reservations.Where(r =>r.SlotId == slotId);
+            return await dbContext.Reservations.Where(r => r.SlotId == slotId).ToListAsync();
         }
     }
 }

@@ -9,7 +9,7 @@ namespace DAL.Repos
 {
     public interface IPromotionRepository : IRepository<Promotion>
     {
-        public Promotion GetByName(string name);
-        public Promotion GetByCode(string code);
+        public Task<Promotion> GetByNameAsync(string name);
+        public Task<Promotion> GetByCodeAsync(string code);
     }
 }

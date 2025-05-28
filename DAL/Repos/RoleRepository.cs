@@ -1,10 +1,10 @@
 ﻿using DAL.DB;
 using DAL.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL.Repos
@@ -17,47 +17,48 @@ namespace DAL.Repos
         {
             this.dbContext = dbContext;
         }
-        public void Add(Role entity)
+
+        public async Task AddAsync(Role entity)
         {
-            dbContext.Roles.Add(entity);
-            SaveChanges();
+            await dbContext.Roles.AddAsync(entity);
+            await SaveChangesAsync();
         }
 
-        public void Delete(Role entity)
+        public async Task DeleteAsync(Role entity)
         {
             dbContext.Roles.Remove(entity);
-            SaveChanges();
+            await SaveChangesAsync();
         }
 
-        public IEnumerable<Role> Find(Expression<Func<Role, bool>> predicate)
+        public async Task<IEnumerable<Role>> FindAsync(Expression<Func<Role, bool>> predicate)
         {
-            return dbContext.Roles.Where(predicate);
+            return await dbContext.Roles.Where(predicate).ToListAsync();
         }
 
-        public IEnumerable<Role> GetAll()
+        public async Task<IEnumerable<Role>> GetAllAsync()
         {
-            return dbContext.Roles.ToList();
+            return await dbContext.Roles.ToListAsync();
         }
 
-        public Role? GetById(int id)
+        public async Task<Role?> GetByIdAsync(int id)
         {
-            return dbContext.Roles.FirstOrDefault(r => r.Id == id);
+            return await dbContext.Roles.FirstOrDefaultAsync(r => r.Id == id);
         }
 
-        public IEnumerable<Role> GetByName(RoleName name)
+        public async Task<IEnumerable<Role>> GetByNameAsync(RoleName name)
         {
-            return dbContext.Roles.Where(r => r.Name == name);
+            return await dbContext.Roles.Where(r => r.Name == name).ToListAsync();
         }
 
-        public void SaveChanges()
+        public async Task SaveChangesAsync()
         {
-            dbContext.SaveChanges();
+            await dbContext.SaveChangesAsync();
         }
 
-        public void Update(Role entity)
+        public async Task UpdateAsync(Role entity)
         {
             dbContext.Roles.Update(entity);
-            SaveChanges();
+            await SaveChangesAsync();
         }
     }
 }

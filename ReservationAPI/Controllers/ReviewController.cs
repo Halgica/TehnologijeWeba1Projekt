@@ -26,7 +26,7 @@ namespace ReservationAPI.Controllers
         [HttpGet]
         public IActionResult GetAllReviews()
         {
-            var reviews = reviewRepository.GetAll();
+            var reviews = reviewRepository.GetAllAsync();
             var reviewDtos = _mapper.Map<IEnumerable<ReviewDto>>(reviews);
             return Ok(reviewDtos);
         }
@@ -34,7 +34,7 @@ namespace ReservationAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult GetReviewById(int id)
         {
-            var review = reviewRepository.GetById(id);
+            var review = reviewRepository.GetByIdAsync(id);
             if (review == null)
                 return NotFound();
             return Ok(review);
@@ -43,21 +43,21 @@ namespace ReservationAPI.Controllers
         [HttpPost]
         public IActionResult AddReview([FromBody] Review review)
         {
-            reviewRepository.Add(review);
+            reviewRepository.AddAsync(review);
             return Ok();
         }
 
         [HttpDelete]
         public IActionResult DeleteReview([FromBody] Review review)
         {
-            var entity = reviewRepository.GetById(review.Id);
+            var entity = reviewRepository.GetByIdAsync(review.Id);
             if (entity == null)
             {
                 return NotFound();
             }
             else
             {
-                reviewRepository.Delete(entity);
+                reviewRepository.DeleteAsync(entity);
                 return NoContent();
             }
 
@@ -66,7 +66,7 @@ namespace ReservationAPI.Controllers
         [HttpPut]
         public IActionResult UpdateReview([FromBody] Review review)
         {
-            var entity = reviewRepository.GetById(review.Id);
+            var entity = reviewRepository.GetByIdAsync(review.Id);
             if (entity == null)
             {
                 return NotFound();
@@ -77,7 +77,7 @@ namespace ReservationAPI.Controllers
                 entity.Content = review.Content;
                 entity.ReviewTime = review.ReviewTime;
 
-                reviewRepository.Update(entity);
+                reviewRepository.UpdateAsync(entity);
                 return Ok();
             }
         }

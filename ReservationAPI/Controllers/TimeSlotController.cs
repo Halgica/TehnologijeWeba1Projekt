@@ -25,7 +25,7 @@ namespace ReservationAPI.Controllers
         [HttpGet]
         public IActionResult GetAllTimeSlots()
         {
-            var timeSlotDto = timeSlotRepository.GetAll();
+            var timeSlotDto = timeSlotRepository.GetAllAsync();
             var TimeSlotsDtos = mapper.Map<IEnumerable<TimeSlotDto>>(timeSlotDto);
             return Ok(TimeSlotsDtos);
         }
@@ -33,7 +33,7 @@ namespace ReservationAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult GetTimeSlotById(int id)
         {
-            var timeSlot = timeSlotRepository.GetById(id);
+            var timeSlot = timeSlotRepository.GetByIdAsync(id);
             var timeSlotDto = mapper.Map<TimeSlotDto>(timeSlot);
             if (timeSlot == null)
                 return NotFound();
@@ -44,19 +44,19 @@ namespace ReservationAPI.Controllers
         public IActionResult AddTimeSlot([FromBody] TimeSlotDto timeSlotDto)
         {
             var timeSlot = mapper.Map<TimeSlot>(timeSlotDto);
-            timeSlotRepository.Add(timeSlot);
+            timeSlotRepository.AddAsync(timeSlot);
             return Ok(timeSlot);
         }
 
         [HttpDelete]
         public IActionResult DeleteReservation([FromBody] TimeSlot timeSlot)
         {
-            var entity = timeSlotRepository.GetById(timeSlot.Id);
+            var entity = timeSlotRepository.GetByIdAsync(timeSlot.Id);
             if (entity == null)
                 return NotFound();
             else
             {
-                timeSlotRepository.Delete(entity);
+                timeSlotRepository.DeleteAsync(entity);
                 return NoContent();
             }
         }
@@ -64,14 +64,14 @@ namespace ReservationAPI.Controllers
         [HttpPut]
         public IActionResult UpdateReservation([FromBody] TimeSlotDto timeSlotDto)
         {
-            var entity = timeSlotRepository.GetById(timeSlotDto.Id);
+            var entity = timeSlotRepository.GetByIdAsync(timeSlotDto.Id);
             if (entity == null)
                 return NotFound();
             else
             {
                 mapper.Map(timeSlotDto, entity);
 
-                timeSlotRepository.Update(entity);
+                timeSlotRepository.UpdateAsync(entity);
                 return Ok();
             }
         }

@@ -25,7 +25,7 @@ namespace ReservationAPI.Controllers
         [HttpGet]
         public IActionResult GetAllPayments()
         {
-            var payments = paymentRepository.GetAll();
+            var payments = paymentRepository.GetAllAsync();
             var paymentDtos = _mapper.Map<IEnumerable<PaymentDto>>(payments);
             return Ok(paymentDtos);
         }
@@ -33,7 +33,7 @@ namespace ReservationAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult GetPaymentById(int id)
         {
-            var payment = paymentRepository.GetById(id);
+            var payment = paymentRepository.GetByIdAsync(id);
             if (payment == null)
                 return NotFound();
             return Ok(payment);
@@ -42,21 +42,21 @@ namespace ReservationAPI.Controllers
         [HttpPost]
         public IActionResult AddPayment([FromBody] Payment payment)
         {
-            paymentRepository.Add(payment);
+            paymentRepository.AddAsync(payment);
             return Ok();
         }
 
         [HttpDelete]
         public IActionResult DeletePayment([FromBody] Payment payment)
         {
-            var entity = paymentRepository.GetById(payment.Id);
+            var entity = paymentRepository.GetByIdAsync(payment.Id);
             if (entity == null)
             {
                 return NotFound();
             }
             else
             {
-                paymentRepository.Delete(entity);
+                paymentRepository.DeleteAsync(entity);
                 return NoContent();
             }
         }
@@ -64,7 +64,7 @@ namespace ReservationAPI.Controllers
         [HttpPut]
         public IActionResult UpdatePayment([FromBody] Payment payment)
         {
-            var entity = paymentRepository.GetById(payment.Id);
+            var entity = paymentRepository.GetByIdAsync(payment.Id);
             if (entity == null)
             {
                 return NotFound();
@@ -75,7 +75,7 @@ namespace ReservationAPI.Controllers
                 entity.Type = payment.Type;
                 entity.User = payment.User;
 
-                paymentRepository.Update(entity);
+                paymentRepository.UpdateAsync(entity);
                 return Ok();
             }
         }

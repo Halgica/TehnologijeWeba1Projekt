@@ -1,10 +1,10 @@
 ﻿using DAL.DB;
 using DAL.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL.Repos
@@ -12,57 +12,58 @@ namespace DAL.Repos
     public class PromotionRepository : IPromotionRepository
     {
         private readonly TW1DbContext dbContext;
+
         public PromotionRepository(TW1DbContext dbContext)
         {
             this.dbContext = dbContext;
         }
 
-        public void Add(Promotion entity)
+        public async Task AddAsync(Promotion entity)
         {
-            dbContext.Add(entity);
-            SaveChanges();
+            await dbContext.Promotions.AddAsync(entity);
+            await SaveChangesAsync();
         }
 
-        public void Delete(Promotion entity)
+        public async Task DeleteAsync(Promotion entity)
         {
-            dbContext.Remove(entity);
-            SaveChanges();
+            dbContext.Promotions.Remove(entity);
+            await SaveChangesAsync();
         }
 
-        public IEnumerable<Promotion> Find(Expression<Func<Promotion, bool>> predicate)
+        public async Task<IEnumerable<Promotion>> FindAsync(Expression<Func<Promotion, bool>> predicate)
         {
-            return dbContext.Promotions.Where(predicate);
+            return await dbContext.Promotions.Where(predicate).ToListAsync();
         }
 
-        public IEnumerable<Promotion> GetAll()
+        public async Task<IEnumerable<Promotion>> GetAllAsync()
         {
-            return dbContext.Promotions.ToList();
+            return await dbContext.Promotions.ToListAsync();
         }
 
-        public Promotion GetByCode(string code)
+        public async Task<Promotion?> GetByCodeAsync(string code)
         {
-            return dbContext.Promotions.FirstOrDefault(p => p.Code == code);
+            return await dbContext.Promotions.FirstOrDefaultAsync(p => p.Code == code);
         }
 
-        public Promotion? GetById(int id)
+        public async Task<Promotion?> GetByIdAsync(int id)
         {
-            return dbContext.Promotions.FirstOrDefault(p =>p.Id == id);
+            return await dbContext.Promotions.FirstOrDefaultAsync(p => p.Id == id);
         }
 
-        public Promotion GetByName(string name)
+        public async Task<Promotion?> GetByNameAsync(string name)
         {
-            return dbContext.Promotions.FirstOrDefault(p => p.Name == name);
+            return await dbContext.Promotions.FirstOrDefaultAsync(p => p.Name == name);
         }
 
-        public void SaveChanges()
+        public async Task SaveChangesAsync()
         {
-            dbContext.SaveChanges();
+            await dbContext.SaveChangesAsync();
         }
 
-        public void Update(Promotion entity)
+        public async Task UpdateAsync(Promotion entity)
         {
-            dbContext.Update(entity);
-            SaveChanges();
+            dbContext.Promotions.Update(entity);
+            await SaveChangesAsync();
         }
     }
 }

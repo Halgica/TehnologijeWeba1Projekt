@@ -6,6 +6,6 @@ namespace DAL.Repos
 {
     public interface IRoleRepository : IRepository<Role>
     {
-        IEnumerable<Role> GetByName(RoleName name);
+        Task<IEnumerable<Role>> GetByNameAsync(RoleName name);
     }
 }

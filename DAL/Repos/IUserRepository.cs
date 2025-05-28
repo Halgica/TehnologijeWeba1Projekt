@@ -6,6 +6,6 @@ namespace DAL.Repos
 {
     public interface IUserRepository : IRepository<User>
     {
-        User? GetByEmail(string email);
+        Task<User?> GetByEmailAsync(string email);
     }
 }

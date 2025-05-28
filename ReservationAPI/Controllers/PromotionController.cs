@@ -25,7 +25,7 @@ namespace ReservationAPI.Controllers
         [HttpGet]
         public IActionResult GetAllPromotions()
         {
-            var reservations = promotionRepository.GetAll();
+            var reservations = promotionRepository.GetAllAsync();
             var reservationsDtos = mapper.Map<IEnumerable<PromotionDto>>(reservations);
             return Ok(reservationsDtos);
         }
@@ -33,7 +33,7 @@ namespace ReservationAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult GetReservationById(int id)
         {
-            var reservation = promotionRepository.GetById(id);
+            var reservation = promotionRepository.GetByIdAsync(id);
             var reservationDto = mapper.Map<PromotionDto>(reservation);
             if (reservation == null)
                 return NotFound();
@@ -44,19 +44,19 @@ namespace ReservationAPI.Controllers
         public IActionResult AddReservation([FromBody] PromotionDto promotionDto)
         {
             var promotion = mapper.Map<Promotion>(promotionDto);
-            promotionRepository.Add(promotion);
+            promotionRepository.AddAsync(promotion);
             return Ok(promotion);
         }
 
         [HttpDelete]
         public IActionResult DeleteReservation([FromBody] Promotion promotion)
         {
-            var entity = promotionRepository.GetById(promotion.Id);
+            var entity = promotionRepository.GetByIdAsync(promotion.Id);
             if (entity == null)
                 return NotFound();
             else
             {
-                promotionRepository.Delete(entity);
+                promotionRepository.DeleteAsync(entity);
                 return NoContent();
             }
         }
@@ -64,14 +64,14 @@ namespace ReservationAPI.Controllers
         [HttpPut]
         public IActionResult UpdateReservation([FromBody] PromotionDto promotionDto)
         {
-            var entity = promotionRepository.GetById(promotionDto.Id);
+            var entity = promotionRepository.GetByIdAsync(promotionDto.Id);
             if (entity == null)
                 return NotFound();
             else
             {
                 mapper.Map(promotionDto, entity);
 
-                promotionRepository.Update(entity);
+                promotionRepository.UpdateAsync(entity);
                 return Ok();
             }
         }

@@ -9,12 +9,12 @@ namespace DAL.Repos
 {
     public interface IRepository<T> where T : class
     {
-        IEnumerable<T> GetAll();
-        T? GetById(int id);
-        IEnumerable<T> Find(Expression<Func<T, bool>> predicate);
-        void Add(T entity);
-        void Update(T entity);
-        void Delete(T entity);
-        void SaveChanges();
+        Task<IEnumerable<T>> GetAllAsync();
+        Task<T?> GetByIdAsync(int id);
+        Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate);
+        Task AddAsync(T entity);
+        Task UpdateAsync(T entity);
+        Task DeleteAsync(T entity);
+        Task SaveChangesAsync();
     }
 }

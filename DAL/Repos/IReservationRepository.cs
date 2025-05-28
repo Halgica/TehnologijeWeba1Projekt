@@ -6,8 +6,8 @@ namespace DAL.Repos
 {
     public interface IReservationRepository : IRepository<Reservation>
     {
-        IEnumerable<Reservation> GetByUserId(int userId);
-        IEnumerable<Reservation> GetByResourceId(int resourceId);
-        IEnumerable<Reservation> GetBySlotId(int slotId);
+        Task<IEnumerable<Reservation>> GetByUserIdAsync(int userId);
+        Task<IEnumerable<Reservation>> GetByResourceIdAsync(int resourceId);
+        Task<IEnumerable<Reservation>> GetBySlotIdAsync(int slotId);
     }
 }

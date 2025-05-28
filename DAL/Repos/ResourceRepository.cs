@@ -1,10 +1,10 @@
 ﻿using DAL.DB;
 using DAL.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL.Repos
@@ -18,47 +18,47 @@ namespace DAL.Repos
             this.dbContext = dbContext;
         }
 
-        public void Add(Resource resource)
+        public async Task AddAsync(Resource resource)
         {
-            dbContext.Resources.Add(resource);
-            SaveChanges();
+            await dbContext.Resources.AddAsync(resource);
+            await SaveChangesAsync();
         }
 
-        public void Update(Resource resource)
+        public async Task UpdateAsync(Resource resource)
         {
             dbContext.Resources.Update(resource);
-            SaveChanges();
+            await SaveChangesAsync();
         }
 
-        public void Delete(Resource resource)
+        public async Task DeleteAsync(Resource resource)
         {
             dbContext.Resources.Remove(resource);
-            SaveChanges();
+            await SaveChangesAsync();
         }
 
-        public Resource? GetById(int id)
+        public async Task<Resource?> GetByIdAsync(int id)
         {
-            return dbContext.Resources.FirstOrDefault(r => r.Id == id);
+            return await dbContext.Resources.FirstOrDefaultAsync(r => r.Id == id);
         }
 
-        public Resource? GetByName(string name)
+        public async Task<Resource?> GetByNameAsync(string name)
         {
-            return dbContext.Resources.FirstOrDefault(r => r.Name == name);
+            return await dbContext.Resources.FirstOrDefaultAsync(r => r.Name == name);
         }
 
-        public IEnumerable<Resource> GetAll()
+        public async Task<IEnumerable<Resource>> GetAllAsync()
         {
-            return dbContext.Resources.ToList();
+            return await dbContext.Resources.ToListAsync();
         }
 
-        public IEnumerable<Resource> Find(Expression<Func<Resource, bool>> predicate)
+        public async Task<IEnumerable<Resource>> FindAsync(Expression<Func<Resource, bool>> predicate)
         {
-            return dbContext.Resources.Where(predicate);
+            return await dbContext.Resources.Where(predicate).ToListAsync();
         }
 
-        public void SaveChanges()
+        public async Task SaveChangesAsync()
         {
-            dbContext.SaveChanges();
+            await dbContext.SaveChangesAsync();
         }
     }
 }

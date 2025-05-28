@@ -25,9 +25,9 @@ namespace ReservationAPI.Controllers
 
         [HttpGet]
         [Authorize(Roles = "Admin")]
-        public IActionResult GetAllUsers()
+        public async Task<IActionResult> GetAllUsers()
         {
-            var users = _userRepository.GetAll();
+            var users = await _userRepository.GetAllAsync();
             var userDtos = _mapper.Map<IEnumerable<UserDto>>(users);
             return Ok(userDtos);
 
@@ -35,18 +35,18 @@ namespace ReservationAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetUserById(int id)
+        public async Task<IActionResult> GetUserByIdAsync(int id)
         {
-            var user = _userRepository.GetById(id);
+            var user = await _userRepository.GetByIdAsync(id);
             if (user == null)
                 return NotFound();
             return Ok(_mapper.Map<UserDto>(user));
         }
 
         [HttpGet("search")]
-        public IActionResult SearchUsers([FromQuery] string? name, [FromQuery] string? email)
+        public async Task<IActionResult> SearchUsersAsync([FromQuery] string? name, [FromQuery] string? email)
         {
-            var users = _userRepository.Find(u =>
+            var users = await _userRepository.FindAsync(u =>
                 (string.IsNullOrEmpty(name) || u.Name.Contains(name, StringComparison.OrdinalIgnoreCase)) &&
                 (string.IsNullOrEmpty(email) || u.Email.Contains(email, StringComparison.OrdinalIgnoreCase))
             );
@@ -58,33 +58,33 @@ namespace ReservationAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddUser([FromBody] UserCreateUpdateDto userDto)
+        public async Task<IActionResult> AddUserAsync([FromBody] UserCreateUpdateDto userDto)
         {
             var user = _mapper.Map<User>(userDto);
-            _userRepository.Add(user);
-            return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, userDto);
+            await _userRepository.AddAsync(user);
+            return CreatedAtAction(nameof(GetUserByIdAsync), new { id = user.Id }, userDto);
         }
 
         [HttpDelete]
-        public IActionResult DeleteUser([FromBody] UserDto user)
+        public async Task<IActionResult> DeleteUserAsync([FromBody] UserDto user)
         {
-            var entity = _userRepository.GetById(user.Id);
+            var entity = await _userRepository.GetByIdAsync(user.Id);
             if (entity == null)
             {
                 return NotFound();
             }
             else
             {
-                _userRepository.Delete(entity);
+                await _userRepository.DeleteAsync(entity);
                 return NoContent();
             }
 
         }
 
         [HttpPut]
-        public IActionResult UpdateUser([FromBody] UserCreateUpdateDto userDto)
+        public async Task<IActionResult> UpdateUserAsync([FromBody] UserCreateUpdateDto userDto)
         {
-            var entity = _userRepository.GetById(userDto.Id);
+            var entity = await _userRepository.GetByIdAsync(userDto.Id);
             if (entity == null)
             {
                 return NotFound();
@@ -93,7 +93,7 @@ namespace ReservationAPI.Controllers
             {
                 _mapper.Map(userDto, entity);
 
-                _userRepository.Update(entity);
+                await _userRepository.UpdateAsync(entity);
                 return Ok();
             }
         }

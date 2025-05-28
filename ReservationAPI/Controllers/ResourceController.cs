@@ -25,7 +25,7 @@ namespace ReservationAPI.Controllers
         [HttpGet]
         public IActionResult GetAllResources()
         {
-            var resources = resourceRepository.GetAll();
+            var resources = resourceRepository.GetAllAsync();
             var resourcesDtos = _mapper.Map<IEnumerable<ResourceDto>>(resources);
             return Ok(resourcesDtos);
         }
@@ -33,7 +33,7 @@ namespace ReservationAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult GetResourceById(int id)
         {
-            var resource = resourceRepository.GetById(id);
+            var resource = resourceRepository.GetByIdAsync(id);
             if (resource == null)
                 return NotFound();
             return Ok(resource);
@@ -42,7 +42,7 @@ namespace ReservationAPI.Controllers
         [HttpGet("search")]
         public IActionResult SearchResources([FromQuery] string? name)
         {
-            var resources = resourceRepository.Find(r => string.IsNullOrEmpty(name) || r.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
+            var resources = resourceRepository.FindAsync(r => string.IsNullOrEmpty(name) || r.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
 
             if (!resources.Any())
                 return NotFound("No resources found matching the criteria.");
@@ -53,21 +53,21 @@ namespace ReservationAPI.Controllers
         [HttpPost]
         public IActionResult AddResource([FromBody] Resource resource)
         {
-            resourceRepository.Add(resource);
+            resourceRepository.AddAsync(resource);
             return Ok();
         }
 
         [HttpDelete]
         public IActionResult DeleteResource([FromBody] Resource resource)
         {
-            var entity = resourceRepository.GetById(resource.Id);
+            var entity = resourceRepository.GetByIdAsync(resource.Id);
             if (entity == null)
             {
                 return NotFound();
             }
             else
             {
-                resourceRepository.Delete(entity);
+                resourceRepository.DeleteAsync(entity);
                 return NoContent();
             }
 
@@ -76,7 +76,7 @@ namespace ReservationAPI.Controllers
         [HttpPut]
         public IActionResult UpdateResource([FromBody] Resource resource)
         {
-            var entity = resourceRepository.GetById(resource.Id);
+            var entity = resourceRepository.GetByIdAsync(resource.Id);
             if (entity == null)
             {
                 return NotFound();
@@ -86,7 +86,7 @@ namespace ReservationAPI.Controllers
                 entity.Name = resource.Name;
                 entity.Description = resource.Description;
 
-                resourceRepository.Update(entity);
+                resourceRepository.UpdateAsync(entity);
                 return Ok();
             }
         }

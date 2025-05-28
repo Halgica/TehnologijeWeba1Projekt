@@ -9,8 +9,8 @@ namespace DAL.Repos
 {
     public interface IPaymentRepository : IRepository<Payment>
     {
-        IEnumerable<Payment> GetByUserId(int userId);
-        IEnumerable<Payment> GetByPaymentType(PaymentType paymentType);
+        Task<IEnumerable<Payment>> GetByUserIdAsync(int userId);
+        Task<IEnumerable<Payment>> GetByPaymentTypeAsync(PaymentType paymentType);
 
     }
 }

@@ -25,7 +25,7 @@ namespace ReservationAPI.Controllers
         [HttpGet]
         public IActionResult GetAllReservations()
         {
-            var reservations = reservationRepository.GetAll();
+            var reservations = reservationRepository.GetAllAsync();
             var reservationsDtos = mapper.Map<IEnumerable<ReservationDto>>(reservations);
             return Ok(reservationsDtos);
         }
@@ -33,7 +33,7 @@ namespace ReservationAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult GetReservationById(int id)
         {
-            var reservation = reservationRepository.GetById(id);
+            var reservation = reservationRepository.GetByIdAsync(id);
             var reservationDto = mapper.Map<ReservationDto>(reservation);
             if (reservation == null)
                 return NotFound();
@@ -44,19 +44,19 @@ namespace ReservationAPI.Controllers
         public IActionResult AddReservation([FromBody] ReservationDto reservationDto)
         {
             var reservation = mapper.Map<Reservation>(reservationDto);
-            reservationRepository.Add(reservation);
+            reservationRepository.AddAsync(reservation);
             return Ok(reservation);
         }
 
         [HttpDelete]
         public IActionResult DeleteReservation([FromBody] Reservation reservation)
         {
-            var entity = reservationRepository.GetById(reservation.Id);
+            var entity = reservationRepository.GetByIdAsync(reservation.Id);
             if (entity == null)
                 return NotFound();
             else
             {
-                reservationRepository.Delete(entity);
+                reservationRepository.DeleteAsync(entity);
                 return NoContent();
             }
         }
@@ -64,14 +64,14 @@ namespace ReservationAPI.Controllers
         [HttpPut]
         public IActionResult UpdateReservation([FromBody]ReservationDto reservationDto)
         {
-            var entity = reservationRepository.GetById(reservationDto.Id);
+            var entity = reservationRepository.GetByIdAsync(reservationDto.Id);
             if (entity == null)
                 return NotFound();
             else
             {
                 mapper.Map(reservationDto, entity);
 
-                reservationRepository.Update(entity);
+                reservationRepository.UpdateAsync(entity);
                 return Ok();
             }
         }

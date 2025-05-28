@@ -1,10 +1,10 @@
 ﻿using DAL.DB;
 using DAL.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL.Repos
@@ -12,56 +12,58 @@ namespace DAL.Repos
     public class PaymentRepository : IPaymentRepository
     {
         private readonly TW1DbContext dbContext;
+
         public PaymentRepository(TW1DbContext dbContext)
         {
             this.dbContext = dbContext;
         }
-        public void Add(Payment entity)
+
+        public async Task AddAsync(Payment entity)
         {
-            dbContext.Add(entity);
-            SaveChanges();
+            await dbContext.Payments.AddAsync(entity);
+            await SaveChangesAsync();
         }
 
-        public void Delete(Payment entity)
+        public async Task DeleteAsync(Payment entity)
         {
-            dbContext.Remove(entity);
-            SaveChanges();
+            dbContext.Payments.Remove(entity);
+            await SaveChangesAsync();
         }
 
-        public IEnumerable<Payment> Find(Expression<Func<Payment, bool>> predicate)
+        public async Task<IEnumerable<Payment>> FindAsync(Expression<Func<Payment, bool>> predicate)
         {
-            return dbContext.Payments.Where(predicate);
+            return await dbContext.Payments.Where(predicate).ToListAsync();
         }
 
-        public IEnumerable<Payment> GetAll()
+        public async Task<IEnumerable<Payment>> GetAllAsync()
         {
-            return dbContext.Payments.ToList();
+            return await dbContext.Payments.ToListAsync();
         }
 
-        public Payment? GetById(int id)
+        public async Task<Payment?> GetByIdAsync(int id)
         {
-            return dbContext.Payments.FirstOrDefault(p => p.Id == id);
+            return await dbContext.Payments.FirstOrDefaultAsync(p => p.Id == id);
         }
 
-        public IEnumerable<Payment> GetByPaymentType(PaymentType paymentType)
+        public async Task<IEnumerable<Payment>> GetByPaymentTypeAsync(PaymentType paymentType)
         {
-            return dbContext.Payments.Where(p => p.Type == paymentType);
+            return await dbContext.Payments.Where(p => p.Type == paymentType).ToListAsync();
         }
 
-        public IEnumerable<Payment> GetByUserId(int userId)
+        public async Task<IEnumerable<Payment>> GetByUserIdAsync(int userId)
         {
-            return dbContext.Payments.Where(p => p.UserId == userId);
+            return await dbContext.Payments.Where(p => p.UserId == userId).ToListAsync();
         }
 
-        public void SaveChanges()
+        public async Task SaveChangesAsync()
         {
-            dbContext.SaveChanges();
+            await dbContext.SaveChangesAsync();
         }
 
-        public void Update(Payment entity)
+        public async Task UpdateAsync(Payment entity)
         {
-            dbContext.Update(entity);
-            SaveChanges();
+            dbContext.Payments.Update(entity);
+            await SaveChangesAsync();
         }
     }
 }

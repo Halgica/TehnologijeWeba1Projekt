@@ -1,10 +1,10 @@
 ﻿using DAL.DB;
 using DAL.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL.Repos
@@ -12,46 +12,48 @@ namespace DAL.Repos
     public class TimeSlotRepository : ITimeSlotRepository
     {
         private readonly TW1DbContext dbContext;
+
         public TimeSlotRepository(TW1DbContext dbContext)
         {
             this.dbContext = dbContext;
         }
-        public void Add(TimeSlot entity)
+
+        public async Task AddAsync(TimeSlot entity)
         {
-            dbContext.Add(entity);
-            SaveChanges();
+            await dbContext.TimeSlots.AddAsync(entity);
+            await SaveChangesAsync();
         }
 
-        public void Delete(TimeSlot entity)
+        public async Task DeleteAsync(TimeSlot entity)
         {
-            dbContext.Remove(entity);
-            SaveChanges();
+            dbContext.TimeSlots.Remove(entity);
+            await SaveChangesAsync();
         }
 
-        public IEnumerable<TimeSlot> Find(Expression<Func<TimeSlot, bool>> predicate)
+        public async Task<IEnumerable<TimeSlot>> FindAsync(Expression<Func<TimeSlot, bool>> predicate)
         {
-            return dbContext.TimeSlots.Where(predicate);
+            return await dbContext.TimeSlots.Where(predicate).ToListAsync();
         }
 
-        public IEnumerable<TimeSlot> GetAll()
+        public async Task<IEnumerable<TimeSlot>> GetAllAsync()
         {
-            return dbContext.TimeSlots.ToList();
+            return await dbContext.TimeSlots.ToListAsync();
         }
 
-        public TimeSlot? GetById(int id)
+        public async Task<TimeSlot?> GetByIdAsync(int id)
         {
-            return dbContext.TimeSlots.FirstOrDefault(x => x.Id == id);
+            return await dbContext.TimeSlots.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public void SaveChanges()
+        public async Task SaveChangesAsync()
         {
-            dbContext.SaveChanges();
+            await dbContext.SaveChangesAsync();
         }
 
-        public void Update(TimeSlot entity)
+        public async Task UpdateAsync(TimeSlot entity)
         {
-            dbContext.Update(entity);
-            SaveChanges();
+            dbContext.TimeSlots.Update(entity);
+            await SaveChangesAsync();
         }
     }
 }

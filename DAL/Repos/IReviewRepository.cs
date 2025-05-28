@@ -9,7 +9,7 @@ namespace DAL.Repos
 {
     public interface IReviewRepository : IRepository<Review>
     {
-        public IEnumerable<Review> GetByRating(int rating);
-        public IEnumerable<Review> GetByEscapeRoom(string escapeRoom);
+        public Task<IEnumerable<Review>> GetByRatingAsync(int rating);
+        public Task<IEnumerable<Review>> GetByEscapeRoomAsync(string escapeRoom);
     }
 }

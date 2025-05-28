@@ -6,6 +6,6 @@ namespace DAL.Repos
 {
     public interface IResourceRepository : IRepository<Resource>
     {
-        Resource? GetByName(string name);
+        Task<Resource?> GetByNameAsync(string name);
     }
 }

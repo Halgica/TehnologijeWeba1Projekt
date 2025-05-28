@@ -1,5 +1,6 @@
 ﻿using DAL.DB;
 using DAL.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace DAL.Repos
@@ -13,47 +14,47 @@ namespace DAL.Repos
             this.dbContext = dbContext;
         }
 
-        public void Add(User entity)
+        public async Task AddAsync(User entity)
         {
-            dbContext.Users.Add(entity);
-            SaveChanges();
+            await dbContext.Users.AddAsync(entity);
+            await SaveChangesAsync();
         }
 
-        public void Delete(User entity)
+        public async Task DeleteAsync(User entity)
         {
             dbContext.Users.Remove(entity);
-            SaveChanges();
+            await SaveChangesAsync();
         }
 
-        public IEnumerable<User> Find(Expression<Func<User, bool>> predicate)
+        public async Task<IEnumerable<User>> FindAsync(Expression<Func<User, bool>> predicate)
         {
-            return dbContext.Users.Where(predicate);
+            return await dbContext.Users.Where(predicate).ToListAsync();
         }
 
-        public IEnumerable<User> GetAll()
+        public async Task<IEnumerable<User>> GetAllAsync()
         {
-            return dbContext.Users.ToList();
+            return await dbContext.Users.ToListAsync();
         }
 
-        public User? GetByEmail(string email)
+        public async Task<User?> GetByEmailAsync(string email)
         {
-            return dbContext.Users.FirstOrDefault(u => u.Email == email);
+            return await dbContext.Users.FirstOrDefaultAsync(u => u.Email == email);
         }
 
-        public User? GetById(int id)
+        public async Task<User?> GetByIdAsync(int id)
         {
-            return dbContext.Users.FirstOrDefault(u => u.Id == id);
+            return await dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
         }
 
-        public void SaveChanges()
+        public async Task SaveChangesAsync()
         {
-            dbContext.SaveChanges();
+            await dbContext.SaveChangesAsync();
         }
 
-        public void Update(User entity)
+        public async Task UpdateAsync(User entity)
         {
             dbContext.Users.Update(entity);
-            SaveChanges();
+            await SaveChangesAsync();
         }
     }
 }
