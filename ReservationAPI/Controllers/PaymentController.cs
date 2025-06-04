@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DAL.Models;
 using DAL.Repos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ReservationAPI.DTOs.Read;
@@ -23,6 +24,7 @@ namespace ReservationAPI.Controllers
 
         #region Web methods
 
+        [Authorize(Roles = "admin")]
         [HttpGet]
         public async Task<IActionResult> GetAllPaymentsAsync()
         {
