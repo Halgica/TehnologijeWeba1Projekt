@@ -9,6 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 using ReservationAPI.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using ReservationAPI.Middleware;
+using ReservationAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -55,6 +56,9 @@ builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<ITimeSlotRepository, TimeSlotRepository>();
 
+builder.Services.AddScoped<AuthService>();
+
+
 
 builder.Services.AddDbContext<TW1DbContext>(options =>
 {
@@ -78,11 +82,11 @@ if (app.Environment.IsDevelopment())
 }
 
 // Automatic database migration upon startup
-using (var scope = app.Services.CreateScope())
-{
-    var db = scope.ServiceProvider.GetRequiredService<TW1DbContext>();
-db.Database.Migrate();
-}
+//using (var scope = app.Services.CreateScope())
+//{
+//    var db = scope.ServiceProvider.GetRequiredService<TW1DbContext>();
+//    db.Database.Migrate();
+//}
 
 app.UseHttpsRedirection();
 

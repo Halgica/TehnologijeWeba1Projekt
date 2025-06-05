@@ -21,6 +21,12 @@ namespace ReservationAPI.Controllers
             this.jwtService = jwtService;
         }
 
+        [HttpPost("Register")]
+        //public async Task<IActionResult> RegisterAsync(LoginDto dto)
+        //{
+
+        //}
+
         [HttpPost("login")]
         public async Task<IActionResult> LoginAsync(LoginDto dto)
         {

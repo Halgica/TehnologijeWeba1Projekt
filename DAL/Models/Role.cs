@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL.Models
-{
+{ //Replaced with AuthRole
     public class Role
     {
         public int Id { get; set; }
