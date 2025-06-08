@@ -10,6 +10,7 @@ using ReservationAPI.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using ReservationAPI.Middleware;
 using ReservationAPI.Services;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,6 +39,10 @@ builder.Services.AddAuthentication(options =>
         };
     });
 
+//// In your Startup.cs or Program.cs
+//builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+//    .AddEntityFrameworkStores<TW1DbContext>();
+
 builder.Services.AddAutoMapper(typeof(Program));
 
 // Add services to the container.
@@ -57,6 +62,18 @@ builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<ITimeSlotRepository, TimeSlotRepository>();
 
 builder.Services.AddScoped<AuthService>();
+
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.WithOrigins("http://localhost:5178")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
+    });
+});
 
 
 
@@ -90,8 +107,14 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseRouting();
+
+app.UseCors("AllowFrontend");
+
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseStaticFiles();
 
 app.MapControllers();
 

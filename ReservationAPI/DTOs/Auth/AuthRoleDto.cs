@@ -1,7 +1,6 @@
-﻿namespace DAL.Models
+﻿namespace ReservationAPI.DTOs.Auth
 {
-    // Roles: 0 - User, 1 - Admin
-    public class AuthRole
+    public class AuthRoleDto
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;

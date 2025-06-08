@@ -5,6 +5,10 @@ using ReservationAPI.Services;
 using Microsoft.EntityFrameworkCore;
 using BCrypt.Net;
 using ReservationAPI.DTOs.Auth;
+using AutoMapper;
+using DAL.Models;
+using Serilog;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ReservationAPI.Controllers
 {
@@ -14,18 +18,33 @@ namespace ReservationAPI.Controllers
     {
         private readonly TW1DbContext context;
         private readonly AuthService jwtService;
+        private readonly IMapper _mapper;
 
-        public AuthController(TW1DbContext context, AuthService jwtService)
+        public AuthController(TW1DbContext context, AuthService jwtService, IMapper mapper)
         {
             this.context = context;
             this.jwtService = jwtService;
+            _mapper = mapper;
         }
 
         [HttpPost("Register")]
-        //public async Task<IActionResult> RegisterAsync(LoginDto dto)
-        //{
+        public async Task<IActionResult> RegisterAsync(LoginDto dto)
+        {
+            var login = _mapper.Map<AuthUser>(dto);
+            login.PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
+            login.Role = await context.AuthRoles.FindAsync(dto.RoleId); 
 
-        //}
+            await context.AuthUsers.AddAsync(login);
+            try
+            {
+                await context.SaveChangesAsync();
+            }
+            catch (DbUpdateException ex)
+            {
+                return StatusCode(500, ex.InnerException?.Message ?? ex.Message);
+            }
+            return Ok(login);
+        }
 
         [HttpPost("login")]
         public async Task<IActionResult> LoginAsync(LoginDto dto)
@@ -39,7 +58,11 @@ namespace ReservationAPI.Controllers
             var token = jwtService.GenerateJwtToken(user);
             var refreshToken = jwtService.GenerateRefreshToken(user);
 
-            return Ok(new { token, refreshToken });
+            return Ok(new { 
+                token, 
+                refreshToken,
+
+            });
         }
 
         [HttpPost("refresh")]
@@ -56,6 +79,22 @@ namespace ReservationAPI.Controllers
             var refreshToken = jwtService.GenerateRefreshToken(user);
 
             return Ok(new { token, refreshToken });
+        }
+        [Authorize(Roles = "Admin")]
+        [HttpPost("addRole")]
+        public async Task<IActionResult> AddRole(AuthRoleDto dto)
+        {
+            var role = _mapper.Map<AuthRole>(dto);
+            await context.AuthRoles.AddAsync(role);
+            try
+            {
+                await context.SaveChangesAsync();
+            }
+            catch (DbUpdateException ex)
+            {
+                return StatusCode(500, ex.InnerException?.Message ?? ex.Message);
+            }
+            return Ok(role);
         }
     }
 }

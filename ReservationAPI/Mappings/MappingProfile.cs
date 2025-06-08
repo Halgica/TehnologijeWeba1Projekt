@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DAL.Models;
+using ReservationAPI.DTOs.Auth;
 using ReservationAPI.DTOs.Read;
 using ReservationAPI.DTOs.Write;
 
@@ -42,6 +43,14 @@ namespace ReservationAPI.Mappings
 
             CreateMap<TimeSlot,TimeSlotDto>().ReverseMap();
             CreateMap<TimeSlotCreateUpdateDto, TimeSlot>();
+
+            //CreateMap<AuthUser,LoginDto>().ReverseMap();
+            CreateMap<LoginDto, AuthUser>()
+                .ForMember(dest => dest.PasswordHash, opt => opt.Ignore()) // hash manually
+                .ForMember(dest => dest.Role, opt => opt.Ignore());        // set manually after mapping
+
+
+            CreateMap<AuthRole, AuthRoleDto>().ReverseMap();
         }
     }
 }

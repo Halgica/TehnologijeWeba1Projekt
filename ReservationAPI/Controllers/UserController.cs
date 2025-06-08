@@ -4,6 +4,7 @@ using DAL.Repos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ReservationAPI.DTOs.Read;
 using ReservationAPI.DTOs.Write;
 
@@ -62,7 +63,14 @@ namespace ReservationAPI.Controllers
         public async Task<IActionResult> AddUserAsync([FromBody] UserCreateUpdateDto userDto)
         {
             var user = _mapper.Map<User>(userDto);
-            await _userRepository.AddAsync(user);
+            try
+            {
+                await _userRepository.AddAsync(user);
+            }
+            catch (DbUpdateException ex)
+            {
+                return StatusCode(500, ex.InnerException?.Message ?? ex.Message);
+            }
             return CreatedAtAction(nameof(GetUserByIdAsync).Replace("Async", ""), new { id = user.Id }, userDto);
         }
 

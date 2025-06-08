@@ -24,7 +24,7 @@ namespace ReservationAPI.Controllers
 
         #region Web methods
 
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> GetAllPaymentsAsync()
         {
