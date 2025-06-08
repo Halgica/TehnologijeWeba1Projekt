@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DAL.Repos
+namespace DAL.Repos.Interface
 {
     public interface IUserRepository : IRepository<User>
     {

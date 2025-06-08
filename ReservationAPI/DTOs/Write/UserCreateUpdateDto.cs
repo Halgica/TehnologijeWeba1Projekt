@@ -9,5 +9,6 @@ namespace ReservationAPI.DTOs.Write
         [Required]
         public string? Name { get; set; }
         public string? Email { get; set; }
+        public int RoleId { get; set; } = 0;
     }
 }

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using DAL.Models;
-using DAL.Repos;
+using DAL.Repos.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

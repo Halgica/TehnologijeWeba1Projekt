@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using ReservationAPI.Middleware;
 using ReservationAPI.Services;
 using Microsoft.AspNetCore.Identity;
+using DAL.Repos.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
 
