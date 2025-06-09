@@ -59,7 +59,7 @@ namespace ReservationAPI.Controllers
         {
             var review = _mapper.Map<Review>(dto);
 
-            review.User = await _context.Users.FindAsync(dto.UserId);
+            review.User = await _context.AuthUsers.FindAsync(dto.UserId);
             review.EscapeRoom = await _context.Resources.FindAsync(dto.EscapeRoomId);
 
             if (review.User == null || review.EscapeRoom == null)

@@ -11,7 +11,7 @@ namespace DAL.Models
         public int Id { get; set; }
         public int UserId { get; set; }
         public PaymentType Type { get; set; }
-        public virtual User? User { get; set; }
+        public virtual AuthUser? User { get; set; }
     }
     public enum PaymentType
     {

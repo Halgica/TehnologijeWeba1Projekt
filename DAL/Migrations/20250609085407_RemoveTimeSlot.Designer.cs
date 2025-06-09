@@ -4,6 +4,7 @@ using DAL.DB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(TW1DbContext))]
-    partial class TW1DbContextModelSnapshot : ModelSnapshot
+    [Migration("20250609085407_RemoveTimeSlot")]
+    partial class RemoveTimeSlot
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -139,14 +142,11 @@ namespace DAL.Migrations
                     b.Property<int?>("AuthUserId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("EndTime")
-                        .HasColumnType("datetime2");
-
                     b.Property<int>("ResourceId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("StartTime")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("SlotId")
+                        .HasColumnType("int");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -159,6 +159,8 @@ namespace DAL.Migrations
                     b.HasIndex("AuthUserId");
 
                     b.HasIndex("ResourceId");
+
+                    b.HasIndex("SlotId");
 
                     b.HasIndex("UserId");
 
@@ -324,6 +326,12 @@ namespace DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("DAL.Models.TimeSlot", "Slot")
+                        .WithMany()
+                        .HasForeignKey("SlotId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("DAL.Models.AuthUser", "User")
                         .WithMany("Reservations")
                         .HasForeignKey("UserId")
@@ -335,6 +343,8 @@ namespace DAL.Migrations
                         .HasForeignKey("UserId1");
 
                     b.Navigation("Resource");
+
+                    b.Navigation("Slot");
 
                     b.Navigation("User");
                 });

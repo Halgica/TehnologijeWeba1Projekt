@@ -57,7 +57,7 @@ namespace ReservationAPI.Controllers
         {
             var reservation = _mapper.Map<Reservation>(dto);
 
-            reservation.User = await _context.Users.FindAsync(dto.UserId);
+            reservation.User = await _context.AuthUsers.FindAsync(dto.UserId);
             reservation.Resource = await _context.Resources.FindAsync(dto.ResourceId);
 
             if (reservation.User == null || reservation.Resource == null)
@@ -66,14 +66,21 @@ namespace ReservationAPI.Controllers
             }
 
             _context.Reservations.Add(reservation);
-            await _context.SaveChangesAsync();
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException ex)
+            {
+                return StatusCode(500, ex.InnerException?.Message ?? ex.Message);
+            }
 
             var result = _mapper.Map<ReservationDto>(reservation);
             return CreatedAtAction(nameof(GetReservationByIdAsync).Replace("Async", ""), new { id = reservation.Id }, result);
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeleteReservationAsync([FromBody] ReservationCreateUpdateDto reservationDto)
+        public async Task<IActionResult> DeleteReservationAsync([FromBody] ReservationDto reservationDto)
         {
             var entity = await reservationRepository.GetByIdAsync(reservationDto.Id);
             if (entity == null)
@@ -86,7 +93,7 @@ namespace ReservationAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateReservationAsync([FromBody]ReservationDto reservationDto)
+        public async Task<IActionResult> UpdateReservationAsync([FromBody]ReservationCreateUpdateDto reservationDto)
         {
             var entity = await reservationRepository.GetByIdAsync(reservationDto.Id);
             if (entity == null)
@@ -96,7 +103,7 @@ namespace ReservationAPI.Controllers
                 _mapper.Map(reservationDto, entity);
 
                 await reservationRepository.UpdateAsync(entity);
-                return Ok();
+                return Ok(reservationDto);
             }
         }
 

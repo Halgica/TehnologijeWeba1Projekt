@@ -11,17 +11,18 @@ namespace ReservationAPI.Mappings
         public MappingProfile()
         {
             CreateMap<User,UserDto>().ReverseMap(); ;
-            CreateMap<User, UserCreateUpdateDto>().ReverseMap();
+            CreateMap<User, UserCreateUpdateDto>().ReverseMap()
+                .ForMember(dest => dest.RoleId, opt => opt.MapFrom(src => src.RoleId == 0 ? 1 : src.RoleId));
 
             CreateMap<Payment, PaymentDto>()
-                .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User.Name));
+                .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User.Email));
             CreateMap<PaymentCreateUpdateDto, Payment>();
 
             CreateMap<Promotion,PromotionDto>().ReverseMap();
             CreateMap<PromotionCreateUpdateDto, Promotion>();
 
             CreateMap<Reservation, ReservationDto>()
-                .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User.Name))
+                .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User.Email))
                 .ForMember(dest => dest.ResourceName, opt => opt.MapFrom(src => src.Resource.Name));
             CreateMap<ReservationCreateUpdateDto, Reservation>()
                 .ForMember(dest => dest.User, opt => opt.Ignore())
@@ -33,7 +34,7 @@ namespace ReservationAPI.Mappings
             CreateMap<ResourceCreateUpdateDto, Resource>();
 
             CreateMap<Review, ReviewDto>()
-                .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User.Name))
+                .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User.Email))
                 .ForMember(dest => dest.EscapeRoomName, opt => opt.MapFrom(src => src.EscapeRoom.Name));
             CreateMap<ReviewCreateUpdateDto, Review>();
 

@@ -9,12 +9,12 @@ namespace DAL.Models
     public class AuthUser
     {
         public int Id { get; set; }
-        public string Name { get; set; }
         public string Email { get; set; } = string.Empty;
         public string PasswordHash { get; set; } = string.Empty;
         public int RoleId { get; set; }
 
         public string RefreshToken { get; set; } = string.Empty;
-        public virtual AuthRole Role { get; set; } = null!;
+        public virtual AuthRole Role { get; set; } = null!; // Dopusti Null
+        public virtual List<Reservation>? Reservations { get; set; }
     }
 }

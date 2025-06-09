@@ -11,10 +11,10 @@ namespace DAL.Models
         public int Id { get; set; }
         public int UserId { get; set; }
         public int ResourceId { get; set; }
-        public int SlotId { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
 
-        public required virtual TimeSlot Slot { get; set; }
-        public virtual User? User { get; set; }
+        public virtual AuthUser? User { get; set; }
         public virtual Resource? Resource { get; set; }
        
     }

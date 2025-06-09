@@ -15,6 +15,6 @@ namespace DAL.Models
         public DateTime ReviewTime { get; set; } = DateTime.Now;
 
         public required virtual Resource EscapeRoom { get; set; }
-        public required virtual User User { get; set; }
+        public required virtual AuthUser User { get; set; }
     }
 }

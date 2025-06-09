@@ -4,6 +4,7 @@ using DAL.Repos.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ReservationAPI.DTOs.Read;
 using ReservationAPI.DTOs.Write;
 
@@ -46,7 +47,14 @@ namespace ReservationAPI.Controllers
         public async Task<IActionResult> AddPaymentAsync([FromBody] PaymentCreateUpdateDto paymentDto)
         {
             var payment = _mapper.Map<Payment>(paymentDto);
-            await paymentRepository.AddAsync(payment);
+            try
+            {
+                await paymentRepository.AddAsync(payment);
+            }
+            catch (DbUpdateException ex)
+            {
+                return StatusCode(500, ex.InnerException?.Message ?? ex.Message);
+            }
             return CreatedAtAction(nameof(GetPaymentByIdAsync).Replace("Async",""), new { id = payment.Id }, paymentDto);
         }
 

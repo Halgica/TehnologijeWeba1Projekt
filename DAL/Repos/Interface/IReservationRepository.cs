@@ -8,6 +8,6 @@ namespace DAL.Repos.Interface
     {
         Task<IEnumerable<Reservation>> GetByUserIdAsync(int userId);
         Task<IEnumerable<Reservation>> GetByResourceIdAsync(int resourceId);
-        Task<IEnumerable<Reservation>> GetBySlotIdAsync(int slotId);
+        //Task<IEnumerable<Reservation>> GetBySlotIdAsync(int slotId);
     }
 }

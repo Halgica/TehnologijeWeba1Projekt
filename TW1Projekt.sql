@@ -10,3 +10,4 @@ select * from AuthUsers
 
 DELETE FROM Users
 WHERE RoleId NOT IN (SELECT Id FROM Roles);
+

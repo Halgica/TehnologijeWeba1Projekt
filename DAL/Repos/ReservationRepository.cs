@@ -67,9 +67,9 @@ namespace DAL.Repos
             return await dbContext.Reservations.Where(r => r.ResourceId == resourceId).ToListAsync();
         }
 
-        public async Task<IEnumerable<Reservation>> GetBySlotIdAsync(int slotId)
-        {
-            return await dbContext.Reservations.Where(r => r.SlotId == slotId).ToListAsync();
-        }
+        //public async Task<IEnumerable<Reservation>> GetBySlotIdAsync(int slotId)
+        //{
+        //    return await dbContext.Reservations.Where(r => r.SlotId == slotId).ToListAsync();
+        //}
     }
 }

@@ -10,8 +10,5 @@ namespace ReservationAPI.DTOs.Write
         [Required]
         public int UserId { get; set; }
         public PaymentType Type { get; set; }
-
-        [Required]
-        public string? UserName { get; set; }
     }
 }

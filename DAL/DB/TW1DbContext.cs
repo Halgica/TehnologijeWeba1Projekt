@@ -33,10 +33,6 @@ namespace DAL.DB
                 .HasOne(r => r.Resource)
                 .WithMany()
                 .HasForeignKey(r => r.ResourceId);
-            modelBuilder.Entity<Reservation>()
-                .HasOne(r => r.Slot)
-                .WithMany()
-                .HasForeignKey(r => r.SlotId);
             modelBuilder.Entity<Role>()
                 .HasMany(r => r.users)
                 .WithOne();
@@ -53,6 +49,14 @@ namespace DAL.DB
                 .HasForeignKey<Review>(r => r.EscapeRoomId);
             modelBuilder.Entity<Promotion>().HasIndex(p => p.Code).IsUnique();
             modelBuilder.Entity<TimeSlot>(); // Sus
+
+            modelBuilder.Entity<AuthUser>()
+                .HasMany<Reservation>()
+                .WithOne();
+            modelBuilder.Entity<AuthUser>()
+                .HasOne(u => u.Role)
+                .WithMany()
+                .HasForeignKey(u => u.RoleId);
 
 
         }
