@@ -3,139 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservation API Explorer</title>
+    <title>Reservation API Explorer (Dark Mode)</title>
     <style>
         body {
+            background-color: #121212;
+            color: #e0e0e0;
             font-family: Arial, sans-serif;
-            margin: 0;
             padding: 20px;
-            line-height: 1.6;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        h1, h2, h3 {
-            color: #333;
-        }
-
-        .section {
-            border: 1px solid #ddd;
-            border-radius: 5px;
+        .section, .form-container {
+            background-color: #1e1e1e;
             padding: 15px;
+            border-radius: 5px;
             margin-bottom: 20px;
-            background-color: #f9f9f9;
-        }
-
-        .method {
-            display: inline-block;
-            padding: 3px 8px;
-            border-radius: 3px;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-
-        .get {
-            background-color: #61affe;
-            color: white;
-        }
-
-        .post {
-            background-color: #49cc90;
-            color: white;
-        }
-
-        .put {
-            background-color: #fca130;
-            color: white;
-        }
-
-        .delete {
-            background-color: #f93e3e;
-            color: white;
-        }
-
-        .path {
-            font-family: monospace;
-            font-size: 16px;
-        }
-
-        .description {
-            margin: 10px 0;
-            color: #555;
-        }
-
-        .form-group {
-            margin-bottom: 10px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        input, select, textarea {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-right: 10px;
-            margin-bottom: 10px;
-        }
-
-            button:hover {
-                background-color: #45a049;
-            }
-
-        .response {
-            margin-top: 15px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            background-color: #f5f5f5;
-            white-space: pre-wrap;
-            font-family: monospace;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-
-        .token-info {
-            margin-top: 15px;
-            padding: 10px;
-            background-color: #f0f0f0;
-            border-radius: 4px;
-            font-family: monospace;
-            font-size: 12px;
-            word-break: break-all;
         }
 
         .tab {
             display: inline-block;
             padding: 10px 20px;
-            cursor: pointer;
-            background-color: #eee;
+            background-color: #333;
             margin-right: 5px;
+            color: #f0f0f0;
+            cursor: pointer;
             border-radius: 5px 5px 0 0;
         }
 
             .tab.active {
-                background-color: #f9f9f9;
-                border: 1px solid #ddd;
-                border-bottom: 1px solid #f9f9f9;
+                background-color: #1e1e1e;
+                border-bottom: 2px solid #1e1e1e;
             }
 
         .tab-content {
@@ -145,367 +41,229 @@
             .tab-content.active {
                 display: block;
             }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            background-color: #2c2c2c;
+            color: #f0f0f0;
+            border: 1px solid #444;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 8px 12px;
+            margin-right: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .response {
+            background-color: #2c2c2c;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+            white-space: pre-wrap;
+        }
+
+        #tokenDisplay {
+            word-break: break-word;
+            white-space: pre-wrap;
+            background-color: #2c2c2c;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            max-width: 100%;
+            overflow-wrap: break-word;
+        }
+
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="section">
         <h1>Reservation API Explorer</h1>
-
-        <!-- Authentication Section -->
-        <div class="section">
-            <h2>Authentication</h2>
-
-            <div class="tabs">
-                <div class="tab active" data-tab="login">Login</div>
-                <div class="tab" data-tab="register">Register</div>
-                <div class="tab" data-tab="refresh">Refresh Token</div>
-            </div>
-
-            <!-- Login Tab -->
-            <div id="login-tab" class="tab-content active">
-                <div class="form-group">
-                    <label for="auth-email">Email:</label>
-                    <input type="email" id="auth-email" placeholder="Your email">
-                </div>
-                <div class="form-group">
-                    <label for="auth-password">Password:</label>
-                    <input type="password" id="auth-password" placeholder="Your password">
-                </div>
-                <div class="form-group">
-                    <label for="auth-role">Role:</label>
-                    <select id="auth-role">
-                        <option value="1">User</option>
-                        <option value="2">Admin</option>
-                    </select>
-                </div>
-                <button id="login-btn">Login</button>
-            </div>
-
-            <!-- Register Tab -->
-            <div id="register-tab" class="tab-content">
-                <div class="form-group">
-                    <label for="reg-email">Email:</label>
-                    <input type="email" id="reg-email" placeholder="Your email">
-                </div>
-                <div class="form-group">
-                    <label for="reg-password">Password:</label>
-                    <input type="password" id="reg-password" placeholder="Your password">
-                </div>
-                <div class="form-group">
-                    <label for="reg-role">Role:</label>
-                    <select id="reg-role">
-                        <option value="1">User</option>
-                        <option value="2">Admin</option>
-                    </select>
-                </div>
-                <button id="register-btn">Register</button>
-            </div>
-
-            <!-- Refresh Token Tab -->
-            <div id="refresh-tab" class="tab-content">
-                <p>Refresh your access token using the refresh token.</p>
-                <button id="refresh-btn">Refresh Token</button>
-            </div>
-
-            <div id="auth-status" style="margin-top: 10px;"></div>
-            <div class="token-info" id="token-info" style="display: none;">
-                <strong>Token:</strong> <span id="token-display"></span><br>
-                <strong>Refresh Token:</strong> <span id="refresh-token-display"></span>
-            </div>
+        <div class="form-group">
+            <label>Email:</label>
+            <input type="email" id="email">
         </div>
-
-        <!-- API Sections -->
-        <div class="section">
-            <h2>API Endpoints</h2>
-
-            <div class="tabs">
-                <div class="tab active" data-tab="payments">Payments</div>
-                <div class="tab" data-tab="users">Users</div>
-                <div class="tab" data-tab="reservations">Reservations</div>
-                <div class="tab" data-tab="resources">Resources</div>
-                <div class="tab" data-tab="reviews">Reviews</div>
-                <div class="tab" data-tab="timeslots">TimeSlots</div>
-                <div class="tab" data-tab="promotions">Promotions</div>
-            </div>
-
-            <!-- Payments Tab -->
-            <div id="payments-tab" class="tab-content active">
-                <h3>Payments</h3>
-                <button id="get-payments-btn">Get All Payments</button>
-                <button id="create-payment-btn">Create Payment</button>
-                <div class="form-group" id="payment-form" style="display: none;">
-                    <label for="payment-user-id">User ID:</label>
-                    <input type="number" id="payment-user-id">
-                    <label for="payment-type">Type:</label>
-                    <select id="payment-type">
-                        <option value="0">Type 0</option>
-                        <option value="1">Type 1</option>
-                        <option value="2">Type 2</option>
-                        <option value="3">Type 3</option>
-                        <option value="4">Type 4</option>
-                    </select>
-                    <button id="submit-payment-btn">Submit</button>
-                </div>
-                <div class="response" id="payments-response"></div>
-            </div>
-
-            <!-- Users Tab -->
-            <div id="users-tab" class="tab-content">
-                <h3>Users</h3>
-                <button id="get-users-btn">Get All Users</button>
-                <button id="create-user-btn">Create User</button>
-                <div class="form-group" id="user-form" style="display: none;">
-                    <label for="user-email">Email:</label>
-                    <input type="email" id="user-email">
-                    <button id="submit-user-btn">Submit</button>
-                </div>
-                <div class="response" id="users-response"></div>
-            </div>
-
-            <!-- Add similar tabs for other endpoints -->
-            <!-- Reservations, Resources, Reviews, TimeSlots, Promotions -->
-
+        <div class="form-group">
+            <label>Password:</label>
+            <input type="password" id="password">
         </div>
+        <div class="form-group">
+            <label>Role ID:</label>
+            <input type="number" id="roleId">
+        </div>
+        <button onclick="login()">Login</button>
+        <button onclick="register()">Register</button>
+        <button onclick="refreshToken()">Refresh Token</button>
+        <div id="tokenDisplay" style="margin-top:10px;"></div>
+    </div>
+
+    <div class="section">
+        <div id="tabs"></div>
+        <div id="tab-contents"></div>
     </div>
 
     <script>
         const API_BASE = 'http://localhost:5178/api';
-        let authToken = null;
-        let refreshToken = null;
+        let token = '';
 
-        // Tab functionality
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                // Remove active class from all tabs
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        const endpoints = {
+            Payment: ['userId', 'type'],
+            User: ['name', 'email', 'roleId'],
+            Reservation: ['userId', 'resourceId', 'startTime', 'endTime'],
+            Resource: ['name', 'description'],
+            Review: ['userId', 'escapeRoomId', 'rating', 'content', 'reviewTime'],
+            TimeSlot: ['startTime', 'endTime', 'isReserved'],
+            Promotion: ['name', 'code', 'discountAmount', 'promotionEndTime', 'usageCount']
+        };
 
-                // Add active class to clicked tab
-                tab.classList.add('active');
-                const tabName = tab.getAttribute('data-tab');
-                document.getElementById(`${tabName}-tab`).classList.add('active');
+        function login() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const roleId = parseInt(document.getElementById('roleId').value);
+            fetch(`${API_BASE}/Auth/login`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password, roleId })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    token = data.token;
+                    document.getElementById('tokenDisplay').innerText = 'Token: ' + token;
+                });
+        }
+
+        function register() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const roleId = parseInt(document.getElementById('roleId').value);
+            fetch(`${API_BASE}/Auth/register`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password, roleId })
+            }).then(res => res.text()).then(console.log);
+        }
+
+        function refreshToken() {
+            fetch(`${API_BASE}/Auth/refresh`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ refreshToken: token })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    token = data.token;
+                    document.getElementById('tokenDisplay').innerText = 'Token: ' + token;
+                });
+        }
+
+        function buildTabs() {
+            const tabs = document.getElementById('tabs');
+            const contents = document.getElementById('tab-contents');
+            Object.keys(endpoints).forEach((key, i) => {
+                const tab = document.createElement('div');
+                tab.className = 'tab' + (i === 0 ? ' active' : '');
+                tab.textContent = key;
+                tab.onclick = () => {
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                    tab.classList.add('active');
+                    document.getElementById(`tab-${key}`).classList.add('active');
+                };
+                tabs.appendChild(tab);
+
+                const content = document.createElement('div');
+                content.className = 'tab-content' + (i === 0 ? ' active' : '');
+                content.id = `tab-${key}`;
+                content.innerHTML = `
+              <h3>${key} Endpoint</h3>
+              <button onclick="showForm('${key}', 'GET')">GET</button>
+              <button onclick="showForm('${key}', 'POST')">POST</button>
+              <button onclick="showForm('${key}', 'PUT')">PUT</button>
+              <button onclick="showForm('${key}', 'DELETE')">DELETE</button>
+              <div id="form-${key}"></div>
+              <div class="response" id="response-${key}"></div>
+            `;
+                contents.appendChild(content);
             });
-        });
-
-        // Token management
-        function loadTokens() {
-            authToken = sessionStorage.getItem('authToken');
-            refreshToken = sessionStorage.getItem('refreshToken');
-
-            if (authToken) {
-                updateTokenDisplay();
-            }
         }
 
-        function saveTokens(token, refresh) {
-            authToken = token;
-            refreshToken = refresh;
-
-            sessionStorage.setItem('authToken', token);
-            if (refresh) {
-                sessionStorage.setItem('refreshToken', refresh);
-            }
-
-            updateTokenDisplay();
-        }
-
-        function clearTokens() {
-            authToken = null;
-            refreshToken = null;
-            sessionStorage.removeItem('authToken');
-            sessionStorage.removeItem('refreshToken');
-            document.getElementById('token-info').style.display = 'none';
-        }
-
-        function updateTokenDisplay() {
-            document.getElementById('token-display').textContent = authToken ? authToken.substring(0, 50) + '...' : '';
-            document.getElementById('refresh-token-display').textContent = refreshToken || 'N/A';
-            document.getElementById('token-info').style.display = authToken ? 'block' : 'none';
-        }
-
-        // Authentication functions
-        document.getElementById('login-btn').addEventListener('click', async () => {
-            const email = document.getElementById('auth-email').value;
-            const password = document.getElementById('auth-password').value;
-            const roleId = parseInt(document.getElementById('auth-role').value);
-
-            try {
-                const response = await fetch(`${API_BASE}/Auth/login`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, password, roleId })
-                });
-
-                if (!response.ok) throw new Error('Login failed');
-
-                const data = await response.json();
-                saveTokens(data.token, data.refreshToken);
-                showStatus('Login successful!', 'green');
-            } catch (error) {
-                showStatus('Error: ' + error.message, 'red');
-            }
-        });
-
-        document.getElementById('register-btn').addEventListener('click', async () => {
-            const email = document.getElementById('reg-email').value;
-            const password = document.getElementById('reg-password').value;
-            const roleId = parseInt(document.getElementById('reg-role').value);
-
-            try {
-                const response = await fetch(`${API_BASE}/Auth/Register`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, password, roleId })
-                });
-
-                if (!response.ok) throw new Error('Registration failed');
-
-                showStatus('Registration successful! Please login.', 'green');
-            } catch (error) {
-                showStatus('Error: ' + error.message, 'red');
-            }
-        });
-
-        document.getElementById('refresh-btn').addEventListener('click', async () => {
-            if (!refreshToken) {
-                showStatus('No refresh token found', 'red');
+        function showForm(name, method) {
+            const container = document.getElementById(`form-${name}`);
+            container.innerHTML = '';
+            if (method === 'GET') {
+                callAPI(name, method, {});
                 return;
             }
 
-            try {
-                const response = await fetch(`${API_BASE}/Auth/refresh`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ refreshToken })
+            const form = document.createElement('div');
+            form.className = 'form-container';
+            endpoints[name].forEach(field => {
+                const group = document.createElement('div');
+                group.className = 'form-group';
+                group.innerHTML = `
+              <label>${field}</label>
+              <input type="text" id="${name}-${field}" />
+            `;
+                form.appendChild(group);
+            });
+            const submit = document.createElement('button');
+            submit.textContent = 'Submit';
+            submit.onclick = () => {
+                const body = {};
+                endpoints[name].forEach(field => {
+                    const val = document.getElementById(`${name}-${field}`).value;
+                    body[field] = isNaN(val) ? val : Number(val);
                 });
-
-                if (!response.ok) throw new Error('Refresh failed');
-
-                const data = await response.json();
-                saveTokens(data.token, data.refreshToken);
-                showStatus('Token refreshed', 'green');
-            } catch (error) {
-                showStatus('Error: ' + error.message, 'red');
-            }
-        });
-
-        // Payment functions
-        document.getElementById('get-payments-btn').addEventListener('click', async () => {
-            if (!checkAuth()) return;
-
-            try {
-                const response = await fetch(`${API_BASE}/Payment`, {
-                    headers: { 'Authorization': `Bearer ${authToken}` }
-                });
-
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-
-                const data = await response.json();
-                displayResponse('payments-response', data);
-            } catch (error) {
-                displayResponse('payments-response', `Error: ${error.message}`);
-            }
-        });
-
-        document.getElementById('create-payment-btn').addEventListener('click', () => {
-            document.getElementById('payment-form').style.display = 'block';
-        });
-
-        document.getElementById('submit-payment-btn').addEventListener('click', async () => {
-            if (!checkAuth()) return;
-
-            const userId = parseInt(document.getElementById('payment-user-id').value);
-            const type = parseInt(document.getElementById('payment-type').value);
-
-            try {
-                const response = await fetch(`${API_BASE}/Payment`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${authToken}`
-                    },
-                    body: JSON.stringify({ userId, type })
-                });
-
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-
-                const data = await response.json();
-                displayResponse('payments-response', data);
-                document.getElementById('payment-form').style.display = 'none';
-            } catch (error) {
-                displayResponse('payments-response', `Error: ${error.message}`);
-            }
-        });
-
-        // User functions
-        document.getElementById('get-users-btn').addEventListener('click', async () => {
-            if (!checkAuth()) return;
-
-            try {
-                const response = await fetch(`${API_BASE}/User`, {
-                    headers: { 'Authorization': `Bearer ${authToken}` }
-                });
-
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-
-                const data = await response.json();
-                displayResponse('users-response', data);
-            } catch (error) {
-                displayResponse('users-response', `Error: ${error.message}`);
-            }
-        });
-
-        document.getElementById('create-user-btn').addEventListener('click', () => {
-            document.getElementById('user-form').style.display = 'block';
-        });
-
-        document.getElementById('submit-user-btn').addEventListener('click', async () => {
-            if (!checkAuth()) return;
-
-            const email = document.getElementById('user-email').value;
-
-            try {
-                const response = await fetch(`${API_BASE}/User`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${authToken}`
-                    },
-                    body: JSON.stringify({ email })
-                });
-
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-
-                const data = await response.json();
-                displayResponse('users-response', data);
-                document.getElementById('user-form').style.display = 'none';
-            } catch (error) {
-                displayResponse('users-response', `Error: ${error.message}`);
-            }
-        });
-
-        // Helper functions
-        function checkAuth() {
-            if (!authToken) {
-                showStatus('Please login first', 'red');
-                return false;
-            }
-            return true;
+                callAPI(name, method, body);
+            };
+            form.appendChild(submit);
+            container.appendChild(form);
         }
 
-        function showStatus(message, color) {
-            const statusEl = document.getElementById('auth-status');
-            statusEl.textContent = message;
-            statusEl.style.color = color;
+        function callAPI(name, method, body) {
+            const options = {
+                method,
+                headers: {}
+            };
+            if (token) options.headers['Authorization'] = `Bearer ${token}`;
+            if (['POST', 'PUT', 'DELETE'].includes(method)) {
+                options.headers['Content-Type'] = 'application/json';
+                options.body = JSON.stringify(body);
+            }
+            fetch(`${API_BASE}/${name}`, options)
+                .then(res => res.text())
+                .then(data => {
+                    try {
+                        // Try to parse and pretty-print JSON
+                        const json = JSON.parse(data);
+                        document.getElementById(`response-${name}`).innerText = JSON.stringify(json, null, 2);
+                    } catch {
+                        // Not JSON? Just show raw data
+                        document.getElementById(`response-${name}`).innerText = data;
+                    }
+                })
+                .catch(err => {
+                    document.getElementById(`response-${name}`).innerText = 'Error: ' + err.message;
+                });
         }
 
-        function displayResponse(elementId, data) {
-            const responseEl = document.getElementById(elementId);
-            responseEl.textContent = typeof data === 'string' ? data : JSON.stringify(data, null, 2);
-        }
 
-        // Initialize
-        loadTokens();
+        buildTabs();
     </script>
 </body>
 </html>
