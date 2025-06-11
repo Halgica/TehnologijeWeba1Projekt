@@ -204,6 +204,7 @@ public class Program // Iz nekog razloga mi testovi ne rade ako nema klase progr
         var app = builder.Build();
 
         app.UseMiddleware<ExceptionHandlingMiddleware>();
+        //app.UseMiddleware<AuthorizationMiddleware>();
 
         if (app.Environment.IsDevelopment())
         {

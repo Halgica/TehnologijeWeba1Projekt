@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 
+// We aint using this
 namespace ReservationAPI.Middleware
 {
     public class AuthorizationMiddleware
