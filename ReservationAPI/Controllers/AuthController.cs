@@ -28,13 +28,13 @@ namespace ReservationAPI.Controllers
         }
 
         [HttpPost("Register")]
-        public async Task<IActionResult> RegisterAsync(LoginDto dto)
+        public async Task<IActionResult> RegisterAsync(RegisterDto dto)
         {
-            var login = _mapper.Map<AuthUser>(dto);
-            login.PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
-            login.Role = await context.AuthRoles.FindAsync(dto.RoleId); 
+            var Register = _mapper.Map<AuthUser>(dto);
+            Register.PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
+            Register.Role = await context.AuthRoles.FindAsync(dto.RoleId);
 
-            await context.AuthUsers.AddAsync(login);
+            await context.AuthUsers.AddAsync(Register);
             try
             {
                 await context.SaveChangesAsync();
@@ -43,7 +43,7 @@ namespace ReservationAPI.Controllers
             {
                 return StatusCode(500, ex.InnerException?.Message ?? ex.Message);
             }
-            return Ok(login);
+            return Ok(Register);
         }
 
         [HttpPost("login")]
