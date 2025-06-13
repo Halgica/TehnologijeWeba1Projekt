@@ -24,8 +24,8 @@ namespace ReservationAPI.Tests.Controllers
             _client = factory.CreateClient();
 
             // Get test tokens (you'll need to implement this based on your auth setup)
-            _adminToken = GetTestToken("admin@test.com", "AdminPass123!", "Admin");
-            _userToken = GetTestToken("user@test.com", "UserPass123!", "User");
+            _adminToken = GetTestToken("admin", "admin", "Admin");
+            _userToken = GetTestToken("user", "user", "User");
         }
 
         private string GetTestToken(string email, string password, string role)
@@ -95,7 +95,7 @@ namespace ReservationAPI.Tests.Controllers
             // Create a payment first
             var newPayment = new PaymentCreateUpdateDto
             {
-                UserId = 6,
+                UserId = 4,
                 Type = PaymentType.PayPal
             };
 
@@ -118,7 +118,7 @@ namespace ReservationAPI.Tests.Controllers
             // Create a payment first
             var payment = new PaymentCreateUpdateDto
             {
-                UserId = 6,
+                UserId = 4,
                 Type = PaymentType.GooglePay
             };
 
@@ -130,7 +130,7 @@ namespace ReservationAPI.Tests.Controllers
             var updated = new PaymentCreateUpdateDto
             {
                 Id = id,
-                UserId = 6,
+                UserId = 3,
                 Type = PaymentType.ApplePay
             };
 
@@ -144,7 +144,7 @@ namespace ReservationAPI.Tests.Controllers
             // Create a payment first
             var payment = new PaymentCreateUpdateDto
             {
-                UserId = 6,
+                UserId = 4,
                 Type = PaymentType.Cash
             };
 
