@@ -11,3 +11,16 @@ select * from AuthUsers
 DELETE FROM Users
 WHERE RoleId NOT IN (SELECT Id FROM Roles);
 
+USE master;
+ALTER DATABASE [tw] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+DROP DATABASE [tw];
+
+
+use master
+
+INSERT INTO AuthRoles (Name, RoleId)
+VALUES 
+    ('Admin', 1),
+    ('User', 2);
+
+

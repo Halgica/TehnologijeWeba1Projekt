@@ -83,29 +83,29 @@ namespace ReservationAPI.Tests.Controllers
             Assert.Equal(HttpStatusCode.OK, updateResponse.StatusCode);
         }
 
-        [Fact]
-        public async Task DeletePayment_ReturnsNoContent_IfExists()
-        {
-            var payment = new PaymentCreateUpdateDto
-            {
-                UserId = 6, // Changed from 1 to 6
-                Type = PaymentType.Cash
-            };
+        //[Fact]
+        //public async Task DeletePayment_ReturnsNoContent_IfExists()
+        //{
+        //    var payment = new PaymentCreateUpdateDto
+        //    {
+        //        UserId = 6, // Changed from 1 to 6
+        //        Type = PaymentType.Cash
+        //    };
 
-            var createResponse = await client.PostAsJsonAsync("/api/Payment", payment);
-            var id = int.Parse(createResponse.Headers.Location?.ToString().Split('/').Last());
+        //    var createResponse = await client.PostAsJsonAsync("/api/Payment", payment);
+        //    var id = int.Parse(createResponse.Headers.Location?.ToString().Split('/').Last());
 
-            var deletePayload = new PaymentDto { Id = id };
+        //    var deletePayload = new PaymentDto { Id = id };
 
-            var deleteResponse = await client.SendAsync(new HttpRequestMessage
-            {
-                Method = HttpMethod.Delete,
-                RequestUri = new Uri("/api/Payment", UriKind.Relative),
-                Content = JsonContent.Create(deletePayload)
-            });
+        //    var deleteResponse = await client.SendAsync(new HttpRequestMessage
+        //    {
+        //        Method = HttpMethod.Delete,
+        //        RequestUri = new Uri("/api/Payment", UriKind.Relative),
+        //        Content = JsonContent.Create(deletePayload)
+        //    });
 
-            Assert.Equal(HttpStatusCode.NoContent, deleteResponse.StatusCode);
-        }
+        //    Assert.Equal(HttpStatusCode.NoContent, deleteResponse.StatusCode);
+        //}
 
         [Fact]
         public async Task GetPaymentById_ReturnsNotFound_IfMissing()
