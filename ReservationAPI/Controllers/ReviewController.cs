@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ReservationAPI.DTOs.Read;
 using ReservationAPI.DTOs.Write;
+using System.Security.Claims;
 
 namespace ReservationAPI.Controllers
 {
@@ -106,6 +107,27 @@ namespace ReservationAPI.Controllers
                 await reviewRepository.UpdateAsync(entity);
                 return Ok();
             }
+        }
+
+        [HttpGet("GetUserReview")]
+        public async Task<IActionResult> GetUserReviewsAsync()
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out var userId))
+            {
+                return Unauthorized("Invalid or missing user ID.");
+            }
+
+            var userReviews = await _context.Reviews
+                .Where(r => r.User.Id == userId)  
+                .Include(r => r.User)
+                .Include(r => r.EscapeRoom)
+                .ToListAsync();
+
+            var reviewDtos = _mapper.Map<List<ReviewDto>>(userReviews);
+
+            return Ok(reviewDtos);
         }
 
         #endregion

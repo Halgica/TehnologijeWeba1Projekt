@@ -89,6 +89,9 @@
             overflow-wrap: break-word;
         }
 
+        .search-form {
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 <body>
@@ -109,6 +112,7 @@
         <button onclick="login()">Login</button>
         <button onclick="register()">Register</button>
         <button onclick="refreshToken()">Refresh Token</button>
+        <button onclick="addRole()">Add Role</button>
         <div id="tokenDisplay" style="margin-top:10px;"></div>
     </div>
 
@@ -122,13 +126,66 @@
         let token = '';
 
         const endpoints = {
-            Payment: ['userId', 'type'],
-            User: ['name', 'email', 'roleId'],
-            Reservation: ['userId', 'resourceId', 'startTime', 'endTime'],
-            Resource: ['name', 'description'],
-            Review: ['userId', 'escapeRoomId', 'rating', 'content', 'reviewTime'],
-            TimeSlot: ['startTime', 'endTime', 'isReserved'],
-            Promotion: ['name', 'code', 'discountAmount', 'promotionEndTime', 'usageCount']
+            Auth: {
+                methods: ['POST'],
+                fields: {
+                    Register: ['email', 'password', 'roleId'],
+                    Login: ['email', 'password', 'roleId'],
+                    Refresh: ['refreshToken'],
+                    AddRole: ['id', 'name', 'roleId']
+                }
+            },
+            Payment: {
+                methods: ['GET', 'POST', 'PUT', 'DELETE'],
+                fields: {
+                    default: ['userId', 'type'],
+                    getById: ['id']
+                }
+            },
+            Promotion: {
+                methods: ['GET', 'POST', 'PUT', 'DELETE'],
+                fields: {
+                    default: ['name', 'code', 'discountAmount', 'promotionEndTime', 'usageCount'],
+                    getById: ['id']
+                }
+            },
+            Reservation: {
+                methods: ['GET', 'POST', 'PUT', 'DELETE'],
+                fields: {
+                    default: ['userId', 'resourceId', 'startTime', 'endTime'],
+                    getById: ['id']
+                }
+            },
+            Resource: {
+                methods: ['GET', 'POST', 'PUT', 'DELETE'],
+                fields: {
+                    default: ['name', 'description'],
+                    getById: ['id'],
+                    search: ['name']
+                }
+            },
+            Review: {
+                methods: ['GET', 'POST', 'PUT', 'DELETE'],
+                fields: {
+                    default: ['userId', 'escapeRoomId', 'rating', 'content', 'reviewTime'],
+                    getById: ['id']
+                }
+            },
+            TimeSlot: {
+                methods: ['GET', 'POST', 'PUT', 'DELETE'],
+                fields: {
+                    default: ['startTime', 'endTime', 'isReserved'],
+                    getById: ['id']
+                }
+            },
+            User: {
+                methods: ['GET', 'POST', 'PUT', 'DELETE'],
+                fields: {
+                    default: ['name', 'email', 'roleId'],
+                    getById: ['id'],
+                    search: ['name', 'email']
+                }
+            }
         };
 
         function login() {
@@ -144,6 +201,9 @@
                 .then(data => {
                     token = data.token;
                     document.getElementById('tokenDisplay').innerText = 'Token: ' + token;
+                })
+                .catch(err => {
+                    document.getElementById('tokenDisplay').innerText = 'Error: ' + err.message;
                 });
         }
 
@@ -151,11 +211,18 @@
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             const roleId = parseInt(document.getElementById('roleId').value);
-            fetch(`${API_BASE}/Auth/register`, {
+            fetch(`${API_BASE}/Auth/Register`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password, roleId })
-            }).then(res => res.text()).then(console.log);
+            })
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById('tokenDisplay').innerText = data;
+                })
+                .catch(err => {
+                    document.getElementById('tokenDisplay').innerText = 'Error: ' + err.message;
+                });
         }
 
         function refreshToken() {
@@ -168,13 +235,42 @@
                 .then(data => {
                     token = data.token;
                     document.getElementById('tokenDisplay').innerText = 'Token: ' + token;
+                })
+                .catch(err => {
+                    document.getElementById('tokenDisplay').innerText = 'Error: ' + err.message;
+                });
+        }
+
+        function addRole() {
+            const id = document.getElementById('id')?.value || 0;
+            const name = document.getElementById('name')?.value || '';
+            const roleId = document.getElementById('roleId').value;
+
+            fetch(`${API_BASE}/Auth/addRole`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ id, name, roleId })
+            })
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById('tokenDisplay').innerText = data;
+                })
+                .catch(err => {
+                    document.getElementById('tokenDisplay').innerText = 'Error: ' + err.message;
                 });
         }
 
         function buildTabs() {
             const tabs = document.getElementById('tabs');
             const contents = document.getElementById('tab-contents');
-            Object.keys(endpoints).forEach((key, i) => {
+
+            // Filter out Auth since we already have it at the top
+            const tabKeys = Object.keys(endpoints).filter(key => key !== 'Auth');
+
+            tabKeys.forEach((key, i) => {
                 const tab = document.createElement('div');
                 tab.className = 'tab' + (i === 0 ? ' active' : '');
                 tab.textContent = key;
@@ -189,15 +285,31 @@
                 const content = document.createElement('div');
                 content.className = 'tab-content' + (i === 0 ? ' active' : '');
                 content.id = `tab-${key}`;
+
+                let buttonsHtml = `<h3>${key} Endpoint</h3>`;
+
+                // Add standard CRUD buttons
+                endpoints[key].methods.forEach(method => {
+                    buttonsHtml += `<button onclick="showForm('${key}', '${method}')">${method}</button>`;
+                });
+
+                // Add special endpoints if they exist
+                if (key === 'Resource') {
+                    buttonsHtml += `<button onclick="showSearchForm('${key}')">SEARCH</button>`;
+                }
+
+                if (key === 'User') {
+                    buttonsHtml += `<button onclick="showSearchForm('${key}')">SEARCH</button>`;
+                }
+
+                // Add get by ID button
+                buttonsHtml += `<button onclick="showGetByIdForm('${key}')">GET BY ID</button>`;
+
                 content.innerHTML = `
-              <h3>${key} Endpoint</h3>
-              <button onclick="showForm('${key}', 'GET')">GET</button>
-              <button onclick="showForm('${key}', 'POST')">POST</button>
-              <button onclick="showForm('${key}', 'PUT')">PUT</button>
-              <button onclick="showForm('${key}', 'DELETE')">DELETE</button>
-              <div id="form-${key}"></div>
-              <div class="response" id="response-${key}"></div>
-            `;
+                        ${buttonsHtml}
+                        <div id="form-${key}"></div>
+                        <div class="response" id="response-${key}"></div>
+                    `;
                 contents.appendChild(content);
             });
         }
@@ -205,63 +317,137 @@
         function showForm(name, method) {
             const container = document.getElementById(`form-${name}`);
             container.innerHTML = '';
+
             if (method === 'GET') {
-                callAPI(name, method, {});
+                callAPI(name, method, {}, '');
                 return;
             }
 
             const form = document.createElement('div');
             form.className = 'form-container';
-            endpoints[name].forEach(field => {
+
+            endpoints[name].fields.default.forEach(field => {
                 const group = document.createElement('div');
                 group.className = 'form-group';
                 group.innerHTML = `
-              <label>${field}</label>
-              <input type="text" id="${name}-${field}" />
-            `;
+                        <label>${field}</label>
+                        <input type="${field === 'isReserved' ? 'checkbox' : 'text'}" id="${name}-${field}" />
+                    `;
                 form.appendChild(group);
             });
+
             const submit = document.createElement('button');
             submit.textContent = 'Submit';
             submit.onclick = () => {
                 const body = {};
-                endpoints[name].forEach(field => {
-                    const val = document.getElementById(`${name}-${field}`).value;
-                    body[field] = isNaN(val) ? val : Number(val);
+                endpoints[name].fields.default.forEach(field => {
+                    const element = document.getElementById(`${name}-${field}`);
+                    const val = field === 'isReserved' ? element.checked : element.value;
+                    body[field] = isNaN(val) || field === 'isReserved' ? val : Number(val);
                 });
-                callAPI(name, method, body);
+                callAPI(name, method, body, '');
             };
+
             form.appendChild(submit);
             container.appendChild(form);
         }
 
-        function callAPI(name, method, body) {
+        function showGetByIdForm(name) {
+            const container = document.getElementById(`form-${name}`);
+            container.innerHTML = '';
+
+            const form = document.createElement('div');
+            form.className = 'form-container';
+
+            const group = document.createElement('div');
+            group.className = 'form-group';
+            group.innerHTML = `
+                    <label>ID</label>
+                    <input type="number" id="${name}-id" />
+                `;
+            form.appendChild(group);
+
+            const submit = document.createElement('button');
+            submit.textContent = 'Submit';
+            submit.onclick = () => {
+                const id = document.getElementById(`${name}-id`).value;
+                callAPI(name, 'GET', {}, id);
+            };
+
+            form.appendChild(submit);
+            container.appendChild(form);
+        }
+
+        function showSearchForm(name) {
+            const container = document.getElementById(`form-${name}`);
+            container.innerHTML = '';
+
+            const form = document.createElement('div');
+            form.className = 'form-container search-form';
+
+            endpoints[name].fields.search.forEach(field => {
+                const group = document.createElement('div');
+                group.className = 'form-group';
+                group.innerHTML = `
+                        <label>${field}</label>
+                        <input type="text" id="${name}-search-${field}" />
+                    `;
+                form.appendChild(group);
+            });
+
+            const submit = document.createElement('button');
+            submit.textContent = 'Search';
+            submit.onclick = () => {
+                const params = new URLSearchParams();
+                endpoints[name].fields.search.forEach(field => {
+                    const val = document.getElementById(`${name}-search-${field}`).value;
+                    if (val) params.append(field, val);
+                });
+                callAPI(`${name}/search`, 'GET', {}, '', params);
+            };
+
+            form.appendChild(submit);
+            container.appendChild(form);
+        }
+
+        function callAPI(name, method, body, id = '', params = new URLSearchParams()) {
             const options = {
                 method,
                 headers: {}
             };
+
             if (token) options.headers['Authorization'] = `Bearer ${token}`;
+
+            let url = `${API_BASE}/${name}`;
+            if (id) url += `/${id}`;
+            if (params.toString()) url += `?${params.toString()}`;
+
             if (['POST', 'PUT', 'DELETE'].includes(method)) {
                 options.headers['Content-Type'] = 'application/json';
                 options.body = JSON.stringify(body);
             }
-            fetch(`${API_BASE}/${name}`, options)
-                .then(res => res.text())
+
+            fetch(url, options)
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error(`HTTP error! status: ${res.status}`);
+                    }
+                    return res.text();
+                })
                 .then(data => {
                     try {
                         // Try to parse and pretty-print JSON
                         const json = JSON.parse(data);
-                        document.getElementById(`response-${name}`).innerText = JSON.stringify(json, null, 2);
+                        document.getElementById(`response-${name.split('/')[0]}`).innerText = JSON.stringify(json, null, 2);
                     } catch {
                         // Not JSON? Just show raw data
-                        document.getElementById(`response-${name}`).innerText = data;
+                        document.getElementById(`response-${name.split('/')[0]}`).innerText = data;
                     }
                 })
                 .catch(err => {
-                    document.getElementById(`response-${name}`).innerText = 'Error: ' + err.message;
+                    document.getElementById(`response-${name.split('/')[0]}`).innerText = 'Error: ' + err.message;
                 });
         }
-
 
         buildTabs();
     </script>

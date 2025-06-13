@@ -1,28 +1,50 @@
-﻿using System.Net;
-using System.Net.Http.Json;
+﻿using DAL.Models;
 using Microsoft.AspNetCore.Mvc.Testing;
-using ReservationAPI.DTOs.Write;
-using ReservationAPI.DTOs.Read;
-using DAL.Models;
-using Xunit;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
+using ReservationAPI.DTOs;
+using ReservationAPI.DTOs.Read;
+using ReservationAPI.DTOs.Write;
+using System.Linq;
+using System.Net;
+using System.Net.Http.Headers;
+using System.Net.Http.Json;
+using System.Threading.Tasks;
+using Xunit;
 
 namespace ReservationAPI.Tests.Controllers
 {
     public class PaymentControllerTests : IClassFixture<WebApplicationFactory<Program>>
     {
-        private readonly HttpClient client;
+        private readonly HttpClient _client;
+        private readonly string _adminToken;
+        private readonly string _userToken;
 
         public PaymentControllerTests(WebApplicationFactory<Program> factory)
         {
-            client = factory.CreateClient();
+            _client = factory.CreateClient();
+
+            // Get test tokens (you'll need to implement this based on your auth setup)
+            _adminToken = GetTestToken("admin@test.com", "AdminPass123!", "Admin");
+            _userToken = GetTestToken("user@test.com", "UserPass123!", "User");
         }
 
-        [Fact]
-        public async Task GetAllPayments_ReturnsUnauthorized()
+        private string GetTestToken(string email, string password, string role)
         {
-            var response = await client.GetAsync("/api/Payment");
-            Assert.Equal(HttpStatusCode.Unauthorized, response.StatusCode);
+            // Implement this method to get a valid JWT token for testing
+            // This should call your actual authentication endpoint
+            // For example:
+            var loginResponse = _client.PostAsJsonAsync("/api/Auth/login", new
+            {
+                Email = email,
+                Password = password,
+                RoleId = role == "Admin" ? 1 : 2 // Assuming role IDs
+            }).Result;
+
+            if (loginResponse.IsSuccessStatusCode)
+            {
+                return loginResponse.Content.ReadFromJsonAsync<AuthResponse>().Result.Token;
+            }
+            return null;
         }
 
         [Fact]
@@ -30,24 +52,54 @@ namespace ReservationAPI.Tests.Controllers
         {
             var payment = new PaymentCreateUpdateDto
             {
-                UserId = 6, // Changed from 1 to 6
+                UserId = 4,
                 Type = PaymentType.Card
             };
 
-            var response = await client.PostAsJsonAsync("/api/Payment", payment);
+            var response = await _client.PostAsJsonAsync("/api/Payment", payment);
+
+            // Add this debug output:
+            var responseContent = await response.Content.ReadAsStringAsync();
+            Console.WriteLine($"Status: {response.StatusCode}");
+            Console.WriteLine($"Response: {responseContent}");
+
             Assert.Equal(HttpStatusCode.Created, response.StatusCode);
+        }
+
+        [Fact]
+        public async Task GetAllPayments_ReturnsUnauthorized_WhenNotAuthenticated()
+        {
+            var response = await _client.GetAsync("/api/Payment");
+            Assert.Equal(HttpStatusCode.Unauthorized, response.StatusCode);
+        }
+
+        [Fact]
+        public async Task GetAllPayments_ReturnsForbidden_WhenNotAdmin()
+        {
+            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _userToken);
+            var response = await _client.GetAsync("/api/Payment");
+            Assert.Equal(HttpStatusCode.Forbidden, response.StatusCode);
+        }
+
+        [Fact]
+        public async Task GetAllPayments_ReturnsOk_WhenAdmin()
+        {
+            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _adminToken);
+            var response = await _client.GetAsync("/api/Payment");
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
 
         [Fact]
         public async Task GetPaymentById_ReturnsOk_IfExists()
         {
+            // Create a payment first
             var newPayment = new PaymentCreateUpdateDto
             {
-                UserId = 6, // Changed from 1 to 6
+                UserId = 6,
                 Type = PaymentType.PayPal
             };
 
-            var createResponse = await client.PostAsJsonAsync("/api/Payment", newPayment);
+            var createResponse = await _client.PostAsJsonAsync("/api/Payment", newPayment);
             Assert.Equal(HttpStatusCode.Created, createResponse.StatusCode);
 
             var location = createResponse.Headers.Location?.ToString();
@@ -55,62 +107,67 @@ namespace ReservationAPI.Tests.Controllers
 
             var id = int.Parse(location.Split('/').Last());
 
-            var getResponse = await client.GetAsync($"/api/Payment/{id}");
+            // Test getting the payment
+            var getResponse = await _client.GetAsync($"/api/Payment/{id}");
             Assert.Equal(HttpStatusCode.OK, getResponse.StatusCode);
         }
 
         [Fact]
         public async Task UpdatePayment_ReturnsOk_IfExists()
         {
+            // Create a payment first
             var payment = new PaymentCreateUpdateDto
             {
-                UserId = 6, // Changed from 1 to 6
+                UserId = 6,
                 Type = PaymentType.GooglePay
             };
 
-            var createResponse = await client.PostAsJsonAsync("/api/Payment", payment);
+            var createResponse = await _client.PostAsJsonAsync("/api/Payment", payment);
             Assert.Equal(HttpStatusCode.Created, createResponse.StatusCode);
             var id = int.Parse(createResponse.Headers.Location?.ToString().Split('/').Last());
 
+            // Test updating the payment
             var updated = new PaymentCreateUpdateDto
             {
                 Id = id,
-                UserId = 6, // Changed from 1 to 6
+                UserId = 6,
                 Type = PaymentType.ApplePay
             };
 
-            var updateResponse = await client.PutAsJsonAsync("/api/Payment", updated);
+            var updateResponse = await _client.PutAsJsonAsync("/api/Payment", updated);
             Assert.Equal(HttpStatusCode.OK, updateResponse.StatusCode);
         }
 
-        //[Fact]
-        //public async Task DeletePayment_ReturnsNoContent_IfExists()
-        //{
-        //    var payment = new PaymentCreateUpdateDto
-        //    {
-        //        UserId = 6, // Changed from 1 to 6
-        //        Type = PaymentType.Cash
-        //    };
+        [Fact]
+        public async Task DeletePayment_ReturnsNoContent_IfExists()
+        {
+            // Create a payment first
+            var payment = new PaymentCreateUpdateDto
+            {
+                UserId = 6,
+                Type = PaymentType.Cash
+            };
 
-        //    var createResponse = await client.PostAsJsonAsync("/api/Payment", payment);
-        //    var id = int.Parse(createResponse.Headers.Location?.ToString().Split('/').Last());
+            var createResponse = await _client.PostAsJsonAsync("/api/Payment", payment);
+            var id = int.Parse(createResponse.Headers.Location?.ToString().Split('/').Last());
 
-        //    var deletePayload = new PaymentDto { Id = id };
+            // Test deleting the payment
+            var deletePayload = new PaymentDto { Id = id };
 
-        //    var deleteResponse = await client.SendAsync(new HttpRequestMessage
-        //    {
-        //        Method = HttpMethod.Delete,
-        //        RequestUri = new Uri("/api/Payment", UriKind.Relative),
-        //        Content = JsonContent.Create(deletePayload)
-        //    });
+            var deleteResponse = await _client.SendAsync(new HttpRequestMessage
+            {
+                Method = HttpMethod.Delete,
+                RequestUri = new Uri("/api/Payment", UriKind.Relative),
+                Content = JsonContent.Create(deletePayload)
+            });
 
-        //    Assert.Equal(HttpStatusCode.NoContent, deleteResponse.StatusCode);
-        //}
+            Assert.Equal(HttpStatusCode.NoContent, deleteResponse.StatusCode);
+        }
 
         [Fact]
         public async Task GetPaymentById_ReturnsNotFound_IfMissing()
         {
-            var response = await client.GetAsync("/api/Payment/99999");
+            var response = await _client.GetAsync("/api/Payment/99999");
             Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
         }
 
@@ -120,11 +177,11 @@ namespace ReservationAPI.Tests.Controllers
             var updatePayment = new PaymentCreateUpdateDto
             {
                 Id = 99999,
-                UserId = 6, // Changed from 1 to 6
+                UserId = 6,
                 Type = PaymentType.ApplePay
             };
 
-            var response = await client.PutAsJsonAsync("/api/Payment", updatePayment);
+            var response = await _client.PutAsJsonAsync("/api/Payment", updatePayment);
             Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
         }
 
@@ -132,7 +189,7 @@ namespace ReservationAPI.Tests.Controllers
         public async Task DeletePayment_ReturnsNotFound_IfMissing()
         {
             var deletePayload = new PaymentDto { Id = 99999 };
-            var response = await client.SendAsync(new HttpRequestMessage
+            var response = await _client.SendAsync(new HttpRequestMessage
             {
                 Method = HttpMethod.Delete,
                 RequestUri = new Uri("/api/Payment", UriKind.Relative),
@@ -141,5 +198,11 @@ namespace ReservationAPI.Tests.Controllers
 
             Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
         }
+    }
+
+    // Helper class for token response
+    public class AuthResponse
+    {
+        public string Token { get; set; }
     }
 }
