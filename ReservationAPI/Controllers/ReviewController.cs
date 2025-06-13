@@ -2,6 +2,7 @@
 using DAL.DB;
 using DAL.Models;
 using DAL.Repos.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -29,6 +30,7 @@ namespace ReservationAPI.Controllers
 
         #region Web methods
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> GetAllReviewsAsync()
         {
