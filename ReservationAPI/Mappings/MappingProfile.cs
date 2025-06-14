@@ -50,6 +50,10 @@ namespace ReservationAPI.Mappings
                 .ForMember(dest => dest.PasswordHash, opt => opt.Ignore()) // hash manually
                 .ForMember(dest => dest.Role, opt => opt.Ignore());        // set manually after mapping
 
+            CreateMap<RegisterDto,AuthUser>()
+                .ForMember(dest => dest.PasswordHash, opt => opt.Ignore()) // hash manually
+                .ForMember(dest => dest.Role, opt => opt.Ignore());        // set manually after mapping
+
 
             CreateMap<AuthRole, AuthRoleDto>().ReverseMap();
         }

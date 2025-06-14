@@ -2,11 +2,13 @@
 using DAL.DB;
 using DAL.Models;
 using DAL.Repos.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ReservationAPI.DTOs.Read;
 using ReservationAPI.DTOs.Write;
+using System.Security.Claims;
 
 namespace ReservationAPI.Controllers
 {
@@ -27,6 +29,7 @@ namespace ReservationAPI.Controllers
 
         #region Web methods
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> GetAllReservationsAsync()
         {
@@ -105,6 +108,27 @@ namespace ReservationAPI.Controllers
                 await reservationRepository.UpdateAsync(entity);
                 return Ok(reservationDto);
             }
+        }
+
+        [HttpGet("GetUserReservations")]
+        public async Task<IActionResult> GetUserReservationsAsync()
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out var userId))
+            {
+                return Unauthorized("Invalid or missing user ID.");
+            }
+
+            var userReservations = await _context.Reservations
+                .Where(r => r.UserId == userId)
+                .Include(r => r.User)
+                .Include(r => r.Resource)
+                .ToListAsync();
+
+            var reservationDtos = _mapper.Map<List<ReservationDto>>(userReservations);
+
+            return Ok(reservationDtos);
         }
 
         #endregion

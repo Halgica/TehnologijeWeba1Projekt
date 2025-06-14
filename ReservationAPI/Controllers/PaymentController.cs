@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DAL.DB;
 using DAL.Models;
 using DAL.Repos.Interface;
 using Microsoft.AspNetCore.Authorization;
@@ -14,13 +15,15 @@ namespace ReservationAPI.Controllers
     [ApiController]
     public class PaymentController : ControllerBase
     {
+        private readonly TW1DbContext context;
         private readonly IPaymentRepository paymentRepository;
         private readonly IMapper _mapper;
 
-        public PaymentController(IPaymentRepository paymentRepository, IMapper mapper)
+        public PaymentController(IPaymentRepository paymentRepository, IMapper mapper, TW1DbContext context)
         {
             this.paymentRepository = paymentRepository;
             _mapper = mapper;
+            this.context = context;
         }
 
         #region Web methods
@@ -55,6 +58,7 @@ namespace ReservationAPI.Controllers
             {
                 return StatusCode(500, ex.InnerException?.Message ?? ex.Message);
             }
+            await context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetPaymentByIdAsync).Replace("Async",""), new { id = payment.Id }, paymentDto);
         }
 
@@ -69,6 +73,7 @@ namespace ReservationAPI.Controllers
             else
             {
                 await paymentRepository.DeleteAsync(entity);
+                await context.SaveChangesAsync();
                 return NoContent();
             }
         }
@@ -86,6 +91,7 @@ namespace ReservationAPI.Controllers
                 _mapper.Map(paymentDto,entity);
 
                 await paymentRepository.UpdateAsync(entity);
+                await context.SaveChangesAsync();
                 return Ok();
             }
         }
