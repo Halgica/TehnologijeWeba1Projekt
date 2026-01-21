@@ -9,91 +9,7 @@ ZC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\Settings\Jwt
 
  
 
-  ï
-MC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\Program.cs
-
-ää 
-≈≈. 5
-
-åå 
-
-åå% )
-éé3 7†
-
-éé 
-êê 
-ìì 
-ìì0 7
-ïï 
-úú %
-©© 
-≈≈ 
-∆∆ 
-«« 
-»» 
-   
-ÀÀ 
-ÃÃ 
-ÕÕ 
-ŒŒ 
-œœ 
-–– 
-—— 
-““ 
-‘‘ 
-ﬂﬂ 
-‚‚ 
-ÈÈ 
-
-êê! (
-ëë1 8
-
-êê* 2
-
-êê4 A
-ëë $
-
-ïï+ 2
-óó 
-òò 
-
-öö 
-ùù 0
-
-úú 
-££ )
-§§  +
-••S ^$
-
-©©' (
-´´ 
-µµ 
-
-‘‘! (
-÷÷ 
-
-÷÷/ 5
-ÿÿ 
-
-ﬂﬂ4 ;
-·· 
-
-„„ 
-„„ ú
-
-ÈÈ 
-ÎÎ 
-ÓÓ 
- 
-ÒÒ 
-ÙÙ 
-ıı 
-ˆˆ 
-˜˜ 
-¯¯ 
-˘˘ 
-˚˚ 
-˝˝ Ï
+  Ï
 ZC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\Services\AuthService.cs
 
  
@@ -104,15 +20,36 @@ ZC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\Services\Aut
 
  &(
 0 47 ;9 =+ /2
- !!F Q%% #&& %((4 ?
+ !!G R%% #&& %((4 ?
  '' 
-!! ""/ 2
+!! ""/ 2
 "" ))$ )
 $$ ++< A
 
 -- *
 --4 800 22 "
-// 00  ,55 Î
+// 00  ,55 ì
+MC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\Program.cs
+ KK2 9
+
+ 
+) -7 ;
+   4 ; """ )// KK LL MM NN PP QQ RR SS TT UU VV WW XX ZZ ee hh oo 
+% ,5 <
+
+. 6
+8 E 
+/ 6  
+   !## (
+"" ))" -**$ /++W b
+//+ ,11 ;; 
+ZZ% ,\\ 
+\\3 9^^ 
+ee8 ?gg 
+ii ii Ü
+oo qq ss uu vv yy zz {{ || }} ~~ 
+ÄÄ 
+ÇÇ Î
 YC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\Models\ApiException.cs
 
  
@@ -144,9 +81,9 @@ WC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Read\Ro
 
  
 
- 
+ 
 
- â
+ â
 ]C:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\Mappings\MappingProfile.cs
 
 		 
@@ -184,7 +121,7 @@ dC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Write\U
 
  $
 
- 
+ 
 
 
 
@@ -192,55 +129,110 @@ dC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Write\U
 
  
 
- ¶
-hC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Write\TimeSlotCreateUpdateDto.cs
+ ç
+[C:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Read\ResourceDto.cs
 
- (
+ 
 
- 
+ 
 
-
-
- !
+ 
 
- 
-
- ä
+ "ä
 dC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Write\RoleCreateUpdateDto.cs
 
  $
 
- 
+ 
 
- º
+ º
 fC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Write\ReviewCreateUpdateDto.cs
 
  &
 
- 
+ 
 
 
 
- 
+  
 
- 
+ 
 
- 
+ 
 
  
 
- "ö
+ #ö
 hC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Write\ResourceCreateUpdateDto.cs
 
  (
 
- 
+ 
 
 
 
  
 
- "˛
+ "µ
+kC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Write\ReservationCreateUpdateDto.cs
+
+ +
+
+ 
+
+
+
+ 
+
+ 
+
+ "
+
+  ø
+iC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Write\PromotionCreateUpdateDto.cs
+
+ )
+
+ 
+
+
+
+ 
+
+ #
+
+ $
+
+ )
+
+ ô
+gC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Write\PaymentCreateUpdateDto.cs
+
+ '
+
+ 
+
+ 
+
+  }
+WC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Read\UserDto.cs
+
+ 
+
+ 
+
+ ô
+[C:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Read\TimeSlotDto.cs
+
+ 
+
+ 
+
+ "
+
+  
+
+ ˛
 hC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\Middleware\AuthorizationMiddleware.cs
 
  ((
@@ -251,160 +243,117 @@ hC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\Middleware\A
 
  %d
 2 9 " #   $$ && '' ,, 
-  ø
-iC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Write\PromotionCreateUpdateDto.cs
-
- )
-
- 
-
-
-
- 
-
- #
-
- #
-
- (
-
- }
-WC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Read\UserDto.cs
-
- 
-
- 
-
- ô
-[C:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Read\TimeSlotDto.cs
-
- 
-
- 
-
- !
-
- 
-
- µ
-kC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Write\ReservationCreateUpdateDto.cs
-
- +
-
- 
-
-
-
- 
-
- 
-
- !
-
- ô
-gC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Write\PaymentCreateUpdateDto.cs
-
- '
-
- 
-
- 
-
- «
+  «
 YC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Read\ReviewDto.cs
 
  
 
- 
+ 
 
- 
+  
 
-		 
+		 
 
 
 
- 
+ 
 
  
 
- "
+ #
 
- 
+ 
 
- $ç
-[C:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Read\ResourceDto.cs
+ %¶
+hC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Write\TimeSlotCreateUpdateDto.cs
 
- 
+ (
 
- 
+ 
 
- 
+
+
+ "
 
- "≤
+  
+
+ ¿
+^C:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Read\ReservationDto.cs
+
+ 
+
+ 
+
+ 
+
+ 
+
+ "
+
+		  
+
+ 
+
+ #≤
 \C:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Read\PromotionDto.cs
 
  
 
- 
+ 
 
  
 
  #
 
- #
+ $
 
-		 (
-
-
-
- ~
-XC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Auth\LoginDto.cs
-
- 
-
- 
-
- ô
-[C:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Auth\RegisterDto.cs
-
- 
-
-		 
+		 )
 
 
 
- 
-
- 
-
- y
-_C:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Auth\RefreshTokenDto.cs
-
-  
-
- "ò
+ ò
 ZC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Read\PaymentDto.cs
 
  
 
- 
+ 
 
- 
+ 
 
-		 
+		  
 
 
 
- ç
+ ô
+[C:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Auth\RegisterDto.cs
+
+ 
+
+		 
+
+
+
+ 
+
+ 
+
+ ç
 [C:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Auth\AuthRoleDto.cs
 
  
 
- 
+ 
 
- 
+ 
 
- ©
+ ~
+XC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Auth\LoginDto.cs
+
+ 
+
+ 
+
+ ©
 _C:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Auth\AuthResponseDto.cs
 
   
@@ -452,24 +401,7 @@ _C:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Auth\Au
 
 ^^) 8
 ^^X _``< Cgg #(
-`` aa gg% +ii2 8¿
-^C:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Read\ReservationDto.cs
-
- 
-
- 
-
- 
-
- 
-
- !
-
-		 
-
- 
-
- "¨
+`` aa gg% +ii2 8¨
 dC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\Controllers\TimeSlotController.cs
 
  #Z
@@ -497,14 +429,13 @@ dC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\Controllers\
 
 DD) ?
 DDc nFF? JKK &(
-FF GG KK( .MM5 ;¸
+FF GG KK( .MM5 ;Ù
 bC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\Controllers\ReviewController.cs
 
  !P
-+ ; !%%  0-- /TT /[[ &dd /mm &H
-! ( && $??  LL #kk 
-ÇÇ $F
-& . AA  (BB& .II JJ ||$ ,
++ ; !%%  0-- /KK /RR &[[ /dd &F
+! ( && $66  CC #bb yy $F
+& . 88  (99& .@@ AA ss$ ,
 2 B$ 4
 L R 
 a h 
@@ -517,34 +448,31 @@ bC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\Controllers\
 ++@ B--= ?
 -- .. 00 
 
-==) 7(
-==Y \??- 0AA= @BBC FP
-?? AA BB DD DD' -II! 'LL3 9MM_ e
-LL MMl u
+44) 7(
+44Y \66- 088= @99C FP
+66 88 99 ;; ;;' -@@! 'CC3 9DD_ e
+CC DDl u
 
-RR) :
-RRP VTT= C
-TT UU [[3 9
+II) :
+IIP VKK= C
+KK LL RR3 9
 
-bb) :
-bb\ edd= Fkk %(
-dd ee kk' -mm3 9
+YY) :
+YY\ e[[= Fbb %(
+[[ \\ bb' -dd3 9
 
-ss) <
-uu ww% 0wwC N
-wwX ^}}) /
-|| 
-ÇÇ: E
-}} }} 
-~~ ~~ 
-  
-
-ÇÇ 
-ÑÑ  ¯
+jj) <
+ll nn% 0nnC N
+nnX ^tt) /
+ss yy: E
+tt tt 
+uu uu 
+vv vv 
+yy {{  ¯
 dC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\Controllers\ResourceController.cs
 
  #d
-- ? #" 4''! 300" 4<< $CC 1JJ (SS 1\\ (2
+- ? #" 4''! 300# 5<< $CC 1JJ (SS 1\\ (2
 ! (     ';; "ZZ 
 6 H& 8
 R X 
@@ -558,9 +486,9 @@ dC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\Controllers\
 '' (( ** 
 
 ..) =
-..R V00Y ]00r v
-00 22 55 
-00? @00b c
+..R V00Z ^00s w
+00 22 55 
+00@ A00c d
 
 99) 9
 99] h;;1 <==o z
@@ -572,14 +500,13 @@ dC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\Controllers\
 
 QQ) <
 QQ` kSS? JZZ '(
-SS TT ZZ) /\\5 ;´
+SS TT ZZ) /\\5 ;£
 gC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\Controllers\ReservationController.cs
 
  &P
-0 E &$$% :,,$ 9XX 4]] +ee 4ll +R
-! ( %%# *--! (== %QQ  jj 
-ÅÅ" )F
-& . ??% -@@) 1GG JJ {{) 1
+0 E &$$% :,,$ 9QQ 4VV +^^ 4ee +P
+! ( %%# *--! (66 %JJ  cc zz" )F
+& . 88% -99) 1@@ CC tt) 1
 < Q) >
 [ a 
 p w 
@@ -593,30 +520,32 @@ gC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\Controllers\
 ,, --= H.. 
 -- 00 $
 
-;;) <(
-;;c f==7 :??B E@@F IP
-== ?? @@ BB BB, 7GG& 1QQ5 @RRd o
-QQ RRv |
+44) <(
+44c f667 :88B E99F IP
+66 88 99 ;; ;;, 7@@& 1JJ5 @KKd o
+JJ KKv |
 
-VV) ?
-VVZ hXXB P
-XX YY ]]8 >
+OO) ?
+OOZ hQQB P
+QQ RR VV8 >
 
-cc) ?(
-cce seeB Pjj *mm ((
-ee ff jj, 2ll8 >
+\\) ?(
+\\e s^^B Pcc *ff ((
+^^ __ cc, 2ee8 >
 
-rr) A
-tt vv% 0vvC N
-vvX ^||( .
-{{  
-ÅÅD T
-|| || 
-}} }} 
-~~ ~~ 
+kk) A
+mm oo% 0ooC N
+ooX ^uu( .
+tt  zzD T
+uu uu 
+vv vv 
+ww ww 
+zz || %y
+_C:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\DTOs\Auth\RefreshTokenDto.cs
 
-ÅÅ 
-ÉÉ %≠
+  
+
+ #≠
 eC:\Users\janha\source\repos\TehnologijeWeba1Projekt\ReservationAPI\Controllers\PromotionController.cs
 
  $Z

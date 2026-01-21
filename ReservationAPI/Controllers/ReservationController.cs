@@ -48,13 +48,6 @@ namespace ReservationAPI.Controllers
             return Ok(reservationDto);
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> AddReservationAsync([FromBody] ReservationCreateUpdateDto reservationDto)
-        //{
-        //    var reservation = mapper.Map<Reservation>(reservationDto);
-        //    await reservationRepository.AddAsync(reservation);
-        //    return CreatedAtAction(nameof(GetReservationByIdAsync).Replace("Async",""), new {id = reservation.Id}, reservationDto);
-        //}
         [HttpPost]
         public async Task<IActionResult> AddReservationAsync([FromBody] ReservationCreateUpdateDto dto)
         {

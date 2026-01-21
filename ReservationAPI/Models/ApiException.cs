@@ -1,6 +1,6 @@
 ﻿namespace ReservationAPI.Models
 {
-    public class ApiException
+    public class ApiException : Exception
     {
         public int StatusCode { get; }
         public string Message { get; }

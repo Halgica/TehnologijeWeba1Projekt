@@ -1562,8 +1562,8 @@ resourceIdCCK U
 )CCc d
 ;CCd e
 }DD 	
-}JJ 
-}KK Ž(
+}EE 
+}FF Ž(
 TC:\Users\janha\source\repos\TehnologijeWeba1Projekt\DAL\Repos\PromotionRepository.cs
 	namespace 	
 DAL
@@ -2423,8 +2423,8 @@ resourceId
 ;
 
 K L
-} 
-} ×
+} 
+} ×
 VC:\Users\janha\source\repos\TehnologijeWeba1Projekt\DAL\Repos\Interface\IRepository.cs
 	namespace 	
 DAL
@@ -2537,7 +2537,7 @@ Expression' 1
 ) 
 ;  
 } 
-} Å
+} ã
 _C:\Users\janha\source\repos\TehnologijeWeba1Projekt\DAL\Repos\Interface\IPromotionRepository.cs
 	namespace 	
 DAL
@@ -2577,24 +2577,26 @@ _C:\Users\janha\source\repos\TehnologijeWeba1Projekt\DAL\Repos\Interface\IPromot
 Task 
 < 
 	Promotion 
-> 
-GetByNameAsync -
-(- .
-string. 4
-name5 9
-)9 :
-;: ;
+? 
+> 
+GetByNameAsync  .
+(. /
+string/ 5
+name6 :
+): ;
+;; <
 public 
 Task 
 < 
 	Promotion 
-> 
-GetByCodeAsync -
-(- .
-string. 4
-code5 9
-)9 :
-;: ;
+? 
+> 
+GetByCodeAsync  .
+(. /
+string/ 5
+code6 :
+): ;
+;; <
 } 
 } •
 ]C:\Users\janha\source\repos\TehnologijeWeba1Projekt\DAL\Repos\Interface\IPaymentRepository.cs
@@ -2659,7 +2661,7 @@ _C:\Users\janha\source\repos\TehnologijeWeba1Projekt\DAL\Repos\Interface\IPromot
 )P Q
 ;Q R
 } 
-} ‡	
+} ³	
 FC:\Users\janha\source\repos\TehnologijeWeba1Projekt\DAL\Models\User.cs
 	namespace 	
 DAL
@@ -2681,24 +2683,26 @@ FC:\Users\janha\source\repos\TehnologijeWeba1Projekt\DAL\Models\User.cs
 set  
 ;  !
 }" #
-public 
-string 
-Name 
-{ 
-get  
-;  !
-set" %
-;% &
-}' (
-public 
-string 
-Email 
-{ 
-get !
-;! "
-set# &
-;& '
-}( )
+public 
+required 
+string 
+Name #
+{$ %
+get& )
+;) *
+set+ .
+;. /
+}0 1
+public 
+required 
+string 
+Email $
+{% &
+get' *
+;* +
+set, /
+;/ 0
+}1 2
 public 
 int 
 RoleId 

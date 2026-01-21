@@ -48,15 +48,6 @@ namespace ReservationAPI.Controllers
             return Ok(review);
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> AddReviewAsync([FromBody] ReviewCreateUpdateDto reviewDto)
-        //{
-        //    var review = _mapper.Map<Review>(reviewDto);
-        //    review.User = await reviewRepository.Users.FindAsync(reviewDto.UserId);
-        //    review.EscapeRoom = await reviewRepository.Resources.FindAsync(reviewDto.EscapeRoomId);
-        //    await reviewRepository.AddAsync(review);
-        //    return CreatedAtAction(nameof(GetReviewByIdAsync).Replace("Async", ""), new { id = review.Id }, reviewDto);
-        //}
         [HttpPost]
         public async Task<IActionResult> AddReviewAsync([FromBody] ReviewCreateUpdateDto dto)
         {

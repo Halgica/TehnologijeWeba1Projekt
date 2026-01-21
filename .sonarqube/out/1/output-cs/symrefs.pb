@@ -329,13 +329,13 @@ _C:\Users\janha\source\repos\TehnologijeWeba1Projekt\DAL\Repos\Interface\IPromot
 
  )
 
- -
+  .
 
-5 9
+6 :
 
- -
+  .
 
-5 9›
+6 :›
 ]C:\Users\janha\source\repos\TehnologijeWeba1Projekt\DAL\Repos\Interface\IPaymentRepository.cs
 
 
@@ -355,9 +355,9 @@ FC:\Users\janha\source\repos\TehnologijeWeba1Projekt\DAL\Models\User.cs
 
  
 
- 
+ #
 
- 
+ $
 
  
 

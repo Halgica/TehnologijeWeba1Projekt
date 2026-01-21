@@ -124,7 +124,7 @@ namespace ReservationAPI.Tests.Controllers
 
             var createResponse = await _client.PostAsJsonAsync("/api/Payment", payment);
             Assert.Equal(HttpStatusCode.Created, createResponse.StatusCode);
-            var id = int.Parse(createResponse.Headers.Location?.ToString().Split('/').Last());
+            int id = int.Parse(createResponse.Headers.Location?.ToString().Split('/').Last());
 
             // Test updating the payment
             var updated = new PaymentCreateUpdateDto
@@ -149,7 +149,7 @@ namespace ReservationAPI.Tests.Controllers
             };
 
             var createResponse = await _client.PostAsJsonAsync("/api/Payment", payment);
-            var id = int.Parse(createResponse.Headers.Location?.ToString().Split('/').Last());
+            int id = int.Parse(createResponse.Headers.Location?.ToString().Split('/').Last());
 
             // Test deleting the payment
             var deletePayload = new PaymentDto { Id = id };
@@ -203,6 +203,6 @@ namespace ReservationAPI.Tests.Controllers
     // Helper class for token response
     public class AuthResponse
     {
-        public string Token { get; set; }
+        public string? Token { get; set; }
     }
 }

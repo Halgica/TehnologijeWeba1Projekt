@@ -6,10 +6,10 @@ OC:\Users\janha\source\repos\TehnologijeWeba1Projekt\DAL\Repos\RoleRepository.cs
 QC:\Users\janha\source\repos\TehnologijeWeba1Projekt\DAL\Repos\ReviewRepository.cs 
 8
 r=	 "#$%'()*,-./01345689:;=>?@BCDEFGH‚$)./5:?DE¥
-SC:\Users\janha\source\repos\TehnologijeWeba1Projekt\DAL\Repos\ResourceRepository.cs 	8	r7	 "#$%&()*+-./02345789:<=>?@A‚$%*/49>±
+SC:\Users\janha\source\repos\TehnologijeWeba1Projekt\DAL\Repos\ResourceRepository.cs 	8	r7	 "#$%&()*+-./02345789:<=>?@A‚$%*/49>­
 VC:\Users\janha\source\repos\TehnologijeWeba1Projekt\DAL\Repos\ReservationRepository.cs 
 8
-jFHr;	 "#$%&()*+-./02345789:<=>?ABCDJK‚$%*/49>C«
+r;	 "#$%&()*+-./02345789:<=>?ABCDEF‚$%*/49>C«
 TC:\Users\janha\source\repos\TehnologijeWeba1Projekt\DAL\Repos\PromotionRepository.cs 
 8
 r;	 "#$%'()*,-./12346789;<=>@ABCDEF‚$).38=BC©
@@ -28,9 +28,9 @@ ZC:\Users\janha\source\repos\TehnologijeWeba1Projekt\DAL\Repos\Interface\IRoleRe
 n
 ^C:\Users\janha\source\repos\TehnologijeWeba1Projekt\DAL\Repos\Interface\IResourceRepository.csr
 	
-u
-aC:\Users\janha\source\repos\TehnologijeWeba1Projekt\DAL\Repos\Interface\IReservationRepository.csjr	
-o
+r
+aC:\Users\janha\source\repos\TehnologijeWeba1Projekt\DAL\Repos\Interface\IReservationRepository.csr	
+o
 VC:\Users\janha\source\repos\TehnologijeWeba1Projekt\DAL\Repos\Interface\IRepository.csr	
 s
 _C:\Users\janha\source\repos\TehnologijeWeba1Projekt\DAL\Repos\Interface\IPromotionRepository.csr	
