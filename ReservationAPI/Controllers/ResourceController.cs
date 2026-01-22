@@ -45,7 +45,7 @@ namespace ReservationAPI.Controllers
         [HttpGet("search")]
         public async Task<IActionResult> SearchResourcesAsync([FromQuery] string? name)
         {
-            var? resources = await resourceRepository.FindAsync(r => string.IsNullOrEmpty(name) || r.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
+            var resources = await resourceRepository.FindAsync(r => string.IsNullOrEmpty(name) || r.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
 
             if (!resources.Any())
                 return NotFound("No resources found matching the criteria.");

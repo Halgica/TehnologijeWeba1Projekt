@@ -33,72 +33,303 @@
           }
         },
         {
-          "ruleId": "CS0825",
-          "level": "error",
-          "message": "The contextual keyword 'var' may only appear within a local variable declaration or in script code",
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Email' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/Controllers/ResourceController.cs",
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Auth/RegisterDto.cs",
                 "region": {
-                  "startLine": 48,
-                  "startColumn": 13,
-                  "endLine": 48,
-                  "endColumn": 16
+                  "startLine": 10,
+                  "startColumn": 23,
+                  "endLine": 10,
+                  "endColumn": 28
                 }
               }
             }
-          ]
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Auth/RegisterDto.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 23,
+                  "endLine": 10,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
         },
         {
-          "ruleId": "CS1061",
-          "level": "error",
-          "message": "'var?' does not contain a definition for 'Any' and no accessible extension method 'Any' accepting a first argument of type 'var?' could be found (are you missing a using directive or an assembly reference?)",
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Password' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/Controllers/ResourceController.cs",
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Auth/RegisterDto.cs",
                 "region": {
-                  "startLine": 50,
-                  "startColumn": 28,
-                  "endLine": 50,
+                  "startLine": 11,
+                  "startColumn": 23,
+                  "endLine": 11,
                   "endColumn": 31
                 }
               }
             }
-          ]
-        },
-        {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 1: cannot convert from 'var?' to 'object?'",
-          "locations": [
+          ],
+          "relatedLocations": [
             {
-              "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/Controllers/ResourceController.cs",
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Auth/RegisterDto.cs",
                 "region": {
-                  "startLine": 53,
+                  "startLine": 11,
                   "startColumn": 23,
-                  "endLine": 53,
-                  "endColumn": 32
+                  "endLine": 11,
+                  "endColumn": 31
                 }
               }
             }
-          ]
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
         },
         {
-          "ruleId": "CS8602",
+          "ruleId": "CS8618",
           "level": "warning",
-          "message": "Dereference of a possibly null reference.",
+          "message": "Non-nullable property 'RefreshToken' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/Controllers/ResourceController.cs",
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Auth/RefreshTokenDto.cs",
                 "region": {
-                  "startLine": 48,
-                  "startColumn": 100,
-                  "endLine": 48,
-                  "endColumn": 106
+                  "startLine": 5,
+                  "startColumn": 23,
+                  "endLine": 5,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Auth/RefreshTokenDto.cs",
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 23,
+                  "endLine": 5,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Email' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Auth/LoginDto.cs",
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 23,
+                  "endLine": 5,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Auth/LoginDto.cs",
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 23,
+                  "endLine": 5,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Password' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Auth/LoginDto.cs",
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 23,
+                  "endLine": 6,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Auth/LoginDto.cs",
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 23,
+                  "endLine": 6,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'UserName' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/ReviewDto.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/ReviewDto.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'EscapeRoomName' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/ReviewDto.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 23,
+                  "endLine": 15,
+                  "endColumn": 37
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/ReviewDto.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 23,
+                  "endLine": 15,
+                  "endColumn": 37
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'UserName' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/ReservationDto.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 23,
+                  "endLine": 11,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/ReservationDto.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 23,
+                  "endLine": 11,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'ResourceName' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/ReservationDto.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 23,
+                  "endLine": 12,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/ReservationDto.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 23,
+                  "endLine": 12,
+                  "endColumn": 35
                 }
               }
             }
@@ -150,76 +381,25 @@
           }
         },
         {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 1: cannot convert from 'int?' to 'int'",
+          "ruleId": "CS8602",
+          "level": "warning",
+          "message": "Dereference of a possibly null reference.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/Controllers/PromotionController.cs",
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/Controllers/ResourceController.cs",
                 "region": {
-                  "startLine": 57,
-                  "startColumn": 65,
-                  "endLine": 57,
-                  "endColumn": 80
+                  "startLine": 48,
+                  "startColumn": 99,
+                  "endLine": 48,
+                  "endColumn": 105
                 }
               }
             }
-          ]
-        },
-        {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 1: cannot convert from 'int?' to 'int'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/Controllers/TimeSlotController.cs",
-                "region": {
-                  "startLine": 57,
-                  "startColumn": 64,
-                  "endLine": 57,
-                  "endColumn": 78
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CS0825",
-          "level": "error",
-          "message": "The contextual keyword 'var' may only appear within a local variable declaration or in script code",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/Services/AuthService.cs",
-                "region": {
-                  "startLine": 33,
-                  "startColumn": 13,
-                  "endLine": 33,
-                  "endColumn": 16
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 1: cannot convert from 'var?' to 'Microsoft.IdentityModel.Tokens.SecurityKey'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/Services/AuthService.cs",
-                "region": {
-                  "startLine": 34,
-                  "startColumn": 48,
-                  "endLine": 34,
-                  "endColumn": 51
-                }
-              }
-            }
-          ]
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
         },
         {
           "ruleId": "CS8602",
@@ -231,9 +411,9 @@
                 "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/Services/AuthService.cs",
                 "region": {
                   "startLine": 33,
-                  "startColumn": 72,
+                  "startColumn": 71,
                   "endLine": 33,
-                  "endColumn": 83
+                  "endColumn": 82
                 }
               }
             }
@@ -241,24 +421,6 @@
           "properties": {
             "warningLevel": 1
           }
-        },
-        {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 1: cannot convert from 'int?' to 'int'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/Controllers/PaymentController.cs",
-                "region": {
-                  "startLine": 68,
-                  "startColumn": 63,
-                  "endLine": 68,
-                  "endColumn": 73
-                }
-              }
-            }
-          ]
         },
         {
           "ruleId": "CS8601",
@@ -303,202 +465,25 @@
           }
         },
         {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 1: cannot convert from 'int?' to 'int'",
+          "ruleId": "CS8602",
+          "level": "warning",
+          "message": "Dereference of a possibly null reference.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/Controllers/ResourceController.cs",
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/Program.cs",
                 "region": {
-                  "startLine": 67,
-                  "startColumn": 64,
-                  "endLine": 67,
-                  "endColumn": 75
+                  "startLine": 41,
+                  "startColumn": 35,
+                  "endLine": 41,
+                  "endColumn": 46
                 }
               }
             }
-          ]
-        },
-        {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 1: cannot convert from 'int?' to 'int'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/Controllers/PaymentController.cs",
-                "region": {
-                  "startLine": 84,
-                  "startColumn": 63,
-                  "endLine": 84,
-                  "endColumn": 76
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 1: cannot convert from 'int?' to 'int'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/Controllers/PromotionController.cs",
-                "region": {
-                  "startLine": 70,
-                  "startColumn": 65,
-                  "endLine": 70,
-                  "endColumn": 80
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 1: cannot convert from 'int?' to 'int'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/Controllers/TimeSlotController.cs",
-                "region": {
-                  "startLine": 70,
-                  "startColumn": 64,
-                  "endLine": 70,
-                  "endColumn": 78
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 1: cannot convert from 'int?' to 'int'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/Controllers/ReviewController.cs",
-                "region": {
-                  "startLine": 75,
-                  "startColumn": 62,
-                  "endLine": 75,
-                  "endColumn": 71
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 1: cannot convert from 'int?' to 'int'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/Controllers/ResourceController.cs",
-                "region": {
-                  "startLine": 83,
-                  "startColumn": 64,
-                  "endLine": 83,
-                  "endColumn": 78
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 1: cannot convert from 'int?' to 'int'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/Controllers/ReviewController.cs",
-                "region": {
-                  "startLine": 91,
-                  "startColumn": 62,
-                  "endLine": 91,
-                  "endColumn": 74
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 1: cannot convert from 'int?' to 'int'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/Controllers/ReservationController.cs",
-                "region": {
-                  "startLine": 81,
-                  "startColumn": 67,
-                  "endLine": 81,
-                  "endColumn": 84
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 1: cannot convert from 'int?' to 'int'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/Controllers/UserController.cs",
-                "region": {
-                  "startLine": 80,
-                  "startColumn": 61,
-                  "endLine": 80,
-                  "endColumn": 68
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 1: cannot convert from 'int?' to 'int'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/Controllers/ReservationController.cs",
-                "region": {
-                  "startLine": 94,
-                  "startColumn": 67,
-                  "endLine": 94,
-                  "endColumn": 84
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 1: cannot convert from 'int?' to 'int'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/Controllers/UserController.cs",
-                "region": {
-                  "startLine": 96,
-                  "startColumn": 61,
-                  "endLine": 96,
-                  "endColumn": 71
-                }
-              }
-            }
-          ]
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
         },
         {
           "ruleId": "CS8602",
@@ -564,27 +549,6 @@
           }
         },
         {
-          "ruleId": "CS8602",
-          "level": "warning",
-          "message": "Dereference of a possibly null reference.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/Program.cs",
-                "region": {
-                  "startLine": 41,
-                  "startColumn": 35,
-                  "endLine": 41,
-                  "endColumn": 46
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
           "ruleId": "S6418",
           "level": "warning",
           "message": "\"Secret\" detected here, make sure this is not a hard-coded secret.",
@@ -606,6 +570,27 @@
           }
         },
         {
+          "ruleId": "S1118",
+          "level": "warning",
+          "message": "Add a 'protected' constructor or the 'static' keyword to the class declaration.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/Program.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 18,
+                  "endLine": 16,
+                  "endColumn": 25
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
           "ruleId": "S125",
           "level": "warning",
           "message": "Remove this commented out code.",
@@ -618,6 +603,468 @@
                   "startColumn": 13,
                   "endLine": 48,
                   "endColumn": 59
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Auth/RegisterDto.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 20,
+                  "endLine": 9,
+                  "endColumn": 22
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Auth/RegisterDto.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 20,
+                  "endLine": 12,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Write/TimeSlotCreateUpdateDto.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 20,
+                  "endLine": 7,
+                  "endColumn": 22
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Write/TimeSlotCreateUpdateDto.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 25,
+                  "endLine": 10,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Write/TimeSlotCreateUpdateDto.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 25,
+                  "endLine": 13,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Write/PromotionCreateUpdateDto.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 20,
+                  "endLine": 7,
+                  "endColumn": 22
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Write/PromotionCreateUpdateDto.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 22,
+                  "endLine": 12,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Write/PromotionCreateUpdateDto.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 25,
+                  "endLine": 13,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Write/PromotionCreateUpdateDto.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 20,
+                  "endLine": 14,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/PromotionDto.cs",
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 20,
+                  "endLine": 5,
+                  "endColumn": 22
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/PromotionDto.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 22,
+                  "endLine": 8,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/PromotionDto.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 25,
+                  "endLine": 9,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/PromotionDto.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 20,
+                  "endLine": 10,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/TimeSlotDto.cs",
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 20,
+                  "endLine": 5,
+                  "endColumn": 22
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/TimeSlotDto.cs",
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 25,
+                  "endLine": 6,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/TimeSlotDto.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 25,
+                  "endLine": 7,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Write/PaymentCreateUpdateDto.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 20,
+                  "endLine": 8,
+                  "endColumn": 22
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Write/PaymentCreateUpdateDto.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 20,
+                  "endLine": 11,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Write/PaymentCreateUpdateDto.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 28,
+                  "endLine": 12,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/PaymentDto.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 20,
+                  "endLine": 7,
+                  "endColumn": 22
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/PaymentDto.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 20,
+                  "endLine": 8,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/PaymentDto.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 28,
+                  "endLine": 9,
+                  "endColumn": 32
                 }
               }
             }
@@ -660,6 +1107,531 @@
                   "startColumn": 38,
                   "endLine": 28,
                   "endColumn": 48
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Write/ReviewCreateUpdateDto.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 20,
+                  "endLine": 7,
+                  "endColumn": 22
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Write/ReviewCreateUpdateDto.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 20,
+                  "endLine": 10,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Write/ReviewCreateUpdateDto.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 20,
+                  "endLine": 13,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Write/ReviewCreateUpdateDto.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 20,
+                  "endLine": 15,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/ReviewDto.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 20,
+                  "endLine": 7,
+                  "endColumn": 22
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/ReviewDto.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 20,
+                  "endLine": 8,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/ReviewDto.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 20,
+                  "endLine": 9,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/ReviewDto.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 20,
+                  "endLine": 10,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/ReviewDto.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 25,
+                  "endLine": 12,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/ReservationDto.cs",
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 20,
+                  "endLine": 5,
+                  "endColumn": 22
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/ReservationDto.cs",
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 20,
+                  "endLine": 6,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/ReservationDto.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 20,
+                  "endLine": 7,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/ReservationDto.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 25,
+                  "endLine": 8,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/ReservationDto.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 25,
+                  "endLine": 9,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/UserDto.cs",
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 20,
+                  "endLine": 5,
+                  "endColumn": 22
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Write/ResourceCreateUpdateDto.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 20,
+                  "endLine": 7,
+                  "endColumn": 22
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Read/ResourceDto.cs",
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 20,
+                  "endLine": 5,
+                  "endColumn": 22
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Write/ReservationCreateUpdateDto.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 20,
+                  "endLine": 7,
+                  "endColumn": 22
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Write/ReservationCreateUpdateDto.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 20,
+                  "endLine": 10,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Write/ReservationCreateUpdateDto.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 20,
+                  "endLine": 13,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Write/ReservationCreateUpdateDto.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 25,
+                  "endLine": 15,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Write/UserCreateUpdateDto.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 20,
+                  "endLine": 7,
+                  "endColumn": 22
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Write/ReservationCreateUpdateDto.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 25,
+                  "endLine": 16,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Auth/AuthRoleDto.cs",
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 20,
+                  "endLine": 5,
+                  "endColumn": 22
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6964",
+          "level": "warning",
+          "message": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/ReservationAPI/DTOs/Auth/AuthRoleDto.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 20,
+                  "endLine": 7,
+                  "endColumn": 26
                 }
               }
             }
@@ -735,48 +1707,6 @@
             ]
           }
         },
-        "CS0825": {
-          "id": "CS0825",
-          "defaultLevel": "error",
-          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS0825)",
-          "properties": {
-            "category": "Compiler",
-            "isEnabledByDefault": true,
-            "tags": [
-              "Compiler",
-              "Telemetry",
-              "NotConfigurable"
-            ]
-          }
-        },
-        "CS1061": {
-          "id": "CS1061",
-          "defaultLevel": "error",
-          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS1061)",
-          "properties": {
-            "category": "Compiler",
-            "isEnabledByDefault": true,
-            "tags": [
-              "Compiler",
-              "Telemetry",
-              "NotConfigurable"
-            ]
-          }
-        },
-        "CS1503": {
-          "id": "CS1503",
-          "defaultLevel": "error",
-          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS1503)",
-          "properties": {
-            "category": "Compiler",
-            "isEnabledByDefault": true,
-            "tags": [
-              "Compiler",
-              "Telemetry",
-              "NotConfigurable"
-            ]
-          }
-        },
         "CS8601": {
           "id": "CS8601",
           "shortDescription": "Possible null reference assignment.",
@@ -805,6 +1735,20 @@
             ]
           }
         },
+        "CS8618": {
+          "id": "CS8618",
+          "shortDescription": "Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8618)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
         "S1116": {
           "id": "S1116",
           "shortDescription": "Empty statements should be removed",
@@ -813,6 +1757,23 @@
           "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1116",
           "properties": {
             "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1118": {
+          "id": "S1118",
+          "shortDescription": "Utility classes should not have public constructors",
+          "fullDescription": "Whenever there are portions of code that are duplicated and do not depend on the state of their container class, they can be centralized inside a \"utility class\". A utility class is a class that only has static members, hence it should not be instantiated.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1118",
+          "properties": {
+            "category": "Major Code Smell",
             "isEnabledByDefault": true,
             "tags": [
               "C#",
@@ -847,6 +1808,22 @@
           "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-6418",
           "properties": {
             "category": "Blocker Security Hotspot",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S6964": {
+          "id": "S6964",
+          "shortDescription": "Value type property used as input in a controller action should be nullable, required or annotated with the JsonRequiredAttribute to avoid under-posting.",
+          "fullDescription": "\"Under-posting\" refers to a situation where a client sends less data than expected to the server during an HTTP request, for example when the client omits some properties from the request body that the server expects to receive.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-6964",
+          "properties": {
+            "category": "Major Code Smell",
             "isEnabledByDefault": true,
             "tags": [
               "C#",

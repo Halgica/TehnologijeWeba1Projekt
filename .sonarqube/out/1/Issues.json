@@ -388,67 +388,6 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250528133435_AddedAsync.cs",
-                "region": {
-                  "startLine": 19,
-                  "startColumn": 55,
-                  "endLine": 19,
-                  "endColumn": 70
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250528133435_AddedAsync.cs",
-                "region": {
-                  "startLine": 32,
-                  "startColumn": 56,
-                  "endLine": 32,
-                  "endColumn": 71
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250528133435_AddedAsync.cs",
-                "region": {
-                  "startLine": 33,
-                  "startColumn": 63,
-                  "endLine": 33,
-                  "endColumn": 78
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250528133435_AddedAsync.cs",
-                "region": {
-                  "startLine": 35,
-                  "startColumn": 63,
-                  "endLine": 35,
-                  "endColumn": 78
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "0": null,
-              "1": null,
-              "2": null
-            }
-          }
-        },
-        {
-          "ruleId": "S1192",
-          "level": "warning",
-          "message": "Define a constant instead of using this literal 'nvarchar(max)' 4 times.",
-          "locations": [
-            {
-              "resultFile": {
                 "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250604184334_UnsavedChangesFix.cs",
                 "region": {
                   "startLine": 16,
@@ -490,6 +429,322 @@
                   "startColumn": 26,
                   "endLine": 32,
                   "endColumn": 41
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'FK_Users_Roles_RoleId' 4 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
+                "region": {
+                  "startLine": 49,
+                  "startColumn": 23,
+                  "endLine": 49,
+                  "endColumn": 46
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
+                "region": {
+                  "startLine": 61,
+                  "startColumn": 23,
+                  "endLine": 61,
+                  "endColumn": 46
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
+                "region": {
+                  "startLine": 85,
+                  "startColumn": 23,
+                  "endLine": 85,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'Users' 8 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 24,
+                  "endLine": 15,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 24,
+                  "endLine": 19,
+                  "endColumn": 31
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
+                "region": {
+                  "startLine": 29,
+                  "startColumn": 24,
+                  "endLine": 29,
+                  "endColumn": 31
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
+                "region": {
+                  "startLine": 50,
+                  "startColumn": 24,
+                  "endLine": 50,
+                  "endColumn": 31
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
+                "region": {
+                  "startLine": 62,
+                  "startColumn": 24,
+                  "endLine": 62,
+                  "endColumn": 31
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
+                "region": {
+                  "startLine": 66,
+                  "startColumn": 24,
+                  "endLine": 66,
+                  "endColumn": 31
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
+                "region": {
+                  "startLine": 78,
+                  "startColumn": 24,
+                  "endLine": 78,
+                  "endColumn": 31
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
+                "region": {
+                  "startLine": 86,
+                  "startColumn": 24,
+                  "endLine": 86,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null,
+              "3": null,
+              "4": null,
+              "5": null,
+              "6": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'RoleId' 6 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 23,
+                  "endLine": 18,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
+                "region": {
+                  "startLine": 42,
+                  "startColumn": 23,
+                  "endLine": 42,
+                  "endColumn": 31
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
+                "region": {
+                  "startLine": 51,
+                  "startColumn": 25,
+                  "endLine": 51,
+                  "endColumn": 33
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
+                "region": {
+                  "startLine": 73,
+                  "startColumn": 23,
+                  "endLine": 73,
+                  "endColumn": 31
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
+                "region": {
+                  "startLine": 77,
+                  "startColumn": 23,
+                  "endLine": 77,
+                  "endColumn": 31
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
+                "region": {
+                  "startLine": 87,
+                  "startColumn": 25,
+                  "endLine": 87,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null,
+              "3": null,
+              "4": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'nvarchar(max)' 4 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250528133435_AddedAsync.cs",
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 55,
+                  "endLine": 19,
+                  "endColumn": 70
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250528133435_AddedAsync.cs",
+                "region": {
+                  "startLine": 32,
+                  "startColumn": 56,
+                  "endLine": 32,
+                  "endColumn": 71
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250528133435_AddedAsync.cs",
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 63,
+                  "endLine": 33,
+                  "endColumn": 78
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250528133435_AddedAsync.cs",
+                "region": {
+                  "startLine": 35,
+                  "startColumn": 63,
+                  "endLine": 35,
+                  "endColumn": 78
                 }
               }
             }
@@ -1036,497 +1291,6 @@
               "1": null,
               "2": null
             }
-          }
-        },
-        {
-          "ruleId": "S1192",
-          "level": "warning",
-          "message": "Define a constant instead of using this literal 'Reservations' 10 times.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
-                "region": {
-                  "startLine": 16,
-                  "startColumn": 24,
-                  "endLine": 16,
-                  "endColumn": 38
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
-                "region": {
-                  "startLine": 20,
-                  "startColumn": 24,
-                  "endLine": 20,
-                  "endColumn": 38
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
-                "region": {
-                  "startLine": 24,
-                  "startColumn": 24,
-                  "endLine": 24,
-                  "endColumn": 38
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
-                "region": {
-                  "startLine": 28,
-                  "startColumn": 24,
-                  "endLine": 28,
-                  "endColumn": 38
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
-                "region": {
-                  "startLine": 35,
-                  "startColumn": 24,
-                  "endLine": 35,
-                  "endColumn": 38
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
-                "region": {
-                  "startLine": 46,
-                  "startColumn": 24,
-                  "endLine": 46,
-                  "endColumn": 38
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
-                "region": {
-                  "startLine": 50,
-                  "startColumn": 24,
-                  "endLine": 50,
-                  "endColumn": 38
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
-                "region": {
-                  "startLine": 54,
-                  "startColumn": 24,
-                  "endLine": 54,
-                  "endColumn": 38
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
-                "region": {
-                  "startLine": 61,
-                  "startColumn": 24,
-                  "endLine": 61,
-                  "endColumn": 38
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
-                "region": {
-                  "startLine": 66,
-                  "startColumn": 24,
-                  "endLine": 66,
-                  "endColumn": 38
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "0": null,
-              "1": null,
-              "2": null,
-              "3": null,
-              "4": null,
-              "5": null,
-              "6": null,
-              "7": null,
-              "8": null
-            }
-          }
-        },
-        {
-          "ruleId": "S1192",
-          "level": "warning",
-          "message": "Define a constant instead of using this literal 'SlotId' 4 times.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
-                "region": {
-                  "startLine": 23,
-                  "startColumn": 23,
-                  "endLine": 23,
-                  "endColumn": 31
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
-                "region": {
-                  "startLine": 53,
-                  "startColumn": 23,
-                  "endLine": 53,
-                  "endColumn": 31
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
-                "region": {
-                  "startLine": 62,
-                  "startColumn": 25,
-                  "endLine": 62,
-                  "endColumn": 33
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
-                "region": {
-                  "startLine": 67,
-                  "startColumn": 25,
-                  "endLine": 67,
-                  "endColumn": 33
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "0": null,
-              "1": null,
-              "2": null
-            }
-          }
-        },
-        {
-          "ruleId": "S1192",
-          "level": "warning",
-          "message": "Define a constant instead of using this literal 'FK_Users_Roles_RoleId' 4 times.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
-                "region": {
-                  "startLine": 14,
-                  "startColumn": 23,
-                  "endLine": 14,
-                  "endColumn": 46
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
-                "region": {
-                  "startLine": 49,
-                  "startColumn": 23,
-                  "endLine": 49,
-                  "endColumn": 46
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
-                "region": {
-                  "startLine": 61,
-                  "startColumn": 23,
-                  "endLine": 61,
-                  "endColumn": 46
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
-                "region": {
-                  "startLine": 85,
-                  "startColumn": 23,
-                  "endLine": 85,
-                  "endColumn": 46
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "0": null,
-              "1": null,
-              "2": null
-            }
-          }
-        },
-        {
-          "ruleId": "S1192",
-          "level": "warning",
-          "message": "Define a constant instead of using this literal 'Users' 8 times.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
-                "region": {
-                  "startLine": 15,
-                  "startColumn": 24,
-                  "endLine": 15,
-                  "endColumn": 31
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
-                "region": {
-                  "startLine": 19,
-                  "startColumn": 24,
-                  "endLine": 19,
-                  "endColumn": 31
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
-                "region": {
-                  "startLine": 29,
-                  "startColumn": 24,
-                  "endLine": 29,
-                  "endColumn": 31
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
-                "region": {
-                  "startLine": 50,
-                  "startColumn": 24,
-                  "endLine": 50,
-                  "endColumn": 31
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
-                "region": {
-                  "startLine": 62,
-                  "startColumn": 24,
-                  "endLine": 62,
-                  "endColumn": 31
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
-                "region": {
-                  "startLine": 66,
-                  "startColumn": 24,
-                  "endLine": 66,
-                  "endColumn": 31
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
-                "region": {
-                  "startLine": 78,
-                  "startColumn": 24,
-                  "endLine": 78,
-                  "endColumn": 31
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
-                "region": {
-                  "startLine": 86,
-                  "startColumn": 24,
-                  "endLine": 86,
-                  "endColumn": 31
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "0": null,
-              "1": null,
-              "2": null,
-              "3": null,
-              "4": null,
-              "5": null,
-              "6": null
-            }
-          }
-        },
-        {
-          "ruleId": "S1192",
-          "level": "warning",
-          "message": "Define a constant instead of using this literal 'RoleId' 6 times.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
-                "region": {
-                  "startLine": 18,
-                  "startColumn": 23,
-                  "endLine": 18,
-                  "endColumn": 31
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
-                "region": {
-                  "startLine": 42,
-                  "startColumn": 23,
-                  "endLine": 42,
-                  "endColumn": 31
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
-                "region": {
-                  "startLine": 51,
-                  "startColumn": 25,
-                  "endLine": 51,
-                  "endColumn": 33
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
-                "region": {
-                  "startLine": 73,
-                  "startColumn": 23,
-                  "endLine": 73,
-                  "endColumn": 31
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
-                "region": {
-                  "startLine": 77,
-                  "startColumn": 23,
-                  "endLine": 77,
-                  "endColumn": 31
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606081922_Registration.cs",
-                "region": {
-                  "startLine": 87,
-                  "startColumn": 25,
-                  "endLine": 87,
-                  "endColumn": 33
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "0": null,
-              "1": null,
-              "2": null,
-              "3": null,
-              "4": null
-            }
-          }
-        },
-        {
-          "ruleId": "S1186",
-          "level": "warning",
-          "message": "Add a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606083817_AddRole.cs",
-                "region": {
-                  "startLine": 17,
-                  "startColumn": 33,
-                  "endLine": 17,
-                  "endColumn": 37
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1186",
-          "level": "warning",
-          "message": "Add a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606083132_AddNameToAuthUser.cs",
-                "region": {
-                  "startLine": 17,
-                  "startColumn": 33,
-                  "endLine": 17,
-                  "endColumn": 37
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
           }
         },
         {
@@ -2234,13 +1998,207 @@
           }
         },
         {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'Reservations' 10 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 24,
+                  "endLine": 16,
+                  "endColumn": 38
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 24,
+                  "endLine": 20,
+                  "endColumn": 38
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
+                "region": {
+                  "startLine": 24,
+                  "startColumn": 24,
+                  "endLine": 24,
+                  "endColumn": 38
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 24,
+                  "endLine": 28,
+                  "endColumn": 38
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
+                "region": {
+                  "startLine": 35,
+                  "startColumn": 24,
+                  "endLine": 35,
+                  "endColumn": 38
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
+                "region": {
+                  "startLine": 46,
+                  "startColumn": 24,
+                  "endLine": 46,
+                  "endColumn": 38
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
+                "region": {
+                  "startLine": 50,
+                  "startColumn": 24,
+                  "endLine": 50,
+                  "endColumn": 38
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
+                "region": {
+                  "startLine": 54,
+                  "startColumn": 24,
+                  "endLine": 54,
+                  "endColumn": 38
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
+                "region": {
+                  "startLine": 61,
+                  "startColumn": 24,
+                  "endLine": 61,
+                  "endColumn": 38
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
+                "region": {
+                  "startLine": 66,
+                  "startColumn": 24,
+                  "endLine": 66,
+                  "endColumn": 38
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null,
+              "3": null,
+              "4": null,
+              "5": null,
+              "6": null,
+              "7": null,
+              "8": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'SlotId' 4 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 23,
+                  "endLine": 23,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
+                "region": {
+                  "startLine": 53,
+                  "startColumn": 23,
+                  "endLine": 53,
+                  "endColumn": 31
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
+                "region": {
+                  "startLine": 62,
+                  "startColumn": 25,
+                  "endLine": 62,
+                  "endColumn": 33
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250609091815_AddReservationTimes.cs",
+                "region": {
+                  "startLine": 67,
+                  "startColumn": 25,
+                  "endLine": 67,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null
+            }
+          }
+        },
+        {
           "ruleId": "S1186",
           "level": "warning",
           "message": "Add a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606084531_AddRoleToUser.cs",
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606083132_AddNameToAuthUser.cs",
                 "region": {
                   "startLine": 17,
                   "startColumn": 33,
@@ -2262,6 +2220,48 @@
             {
               "resultFile": {
                 "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606084741_FixRecursiveSerialization.cs",
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 33,
+                  "endLine": 17,
+                  "endColumn": 37
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1186",
+          "level": "warning",
+          "message": "Add a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606083817_AddRole.cs",
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 33,
+                  "endLine": 17,
+                  "endColumn": 37
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1186",
+          "level": "warning",
+          "message": "Add a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/janha/source/repos/TehnologijeWeba1Projekt/DAL/Migrations/20250606084531_AddRoleToUser.cs",
                 "region": {
                   "startLine": 17,
                   "startColumn": 33,

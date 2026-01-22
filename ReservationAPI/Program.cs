@@ -13,7 +13,7 @@ using System.Text;
 
 namespace ReservationAPI
 {
-    public static class Program // Iz nekog razloga mi testovi ne rade ako nema klase program ???
+    public class Program // Iz nekog razloga mi testovi ne rade ako nema klase program ???
     {
         public static void Main(string[] args)
         {
